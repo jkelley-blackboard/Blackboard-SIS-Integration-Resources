@@ -17,7 +17,7 @@ We assume:
 ILP must be configured to include the department metadata in the LIS **Course Section** XML.
 
 Full XML example:  
-🔗 https://github.com/jkelley-blackboard/SIS-Integration-Field-Mapping-Scripts/blob/main/xml_samples/ILP_LIS_course_section.xml
+🔗 https://github.com/jkelley-blackboard/Blackboard-SIS-Integration-Resources/blob/main/lis/xml-samples/ILP_LIS_course_section.xml
 
 Department information appears in the `<org>` block:
 
@@ -45,7 +45,7 @@ var dept = data.courseSection.org.id;
 ```
 
 Full working script reference:  
-🔗 https://github.com/jkelley-blackboard/SIS-Integration-Field-Mapping-Scripts/blob/main/javascripts/LIS_course_primary_node_department.js
+🔗 https://github.com/jkelley-blackboard/Blackboard-SIS-Integration-Resources/blob/main/lis/scripts/LIS_course_primary_node_department.js
 
 ---
 
@@ -157,9 +157,9 @@ If your institution frequently uses secondary nodes, handle them via **Snapshot 
 ---
 
 - **ILP LIS Course Section XML Sample**  
-  🔗 https://github.com/jkelley-blackboard/SIS-Integration-Field-Mapping-Scripts/blob/main/xml_samples/ILP_LIS_course_section.xml
+  🔗 https://github.com/jkelley-blackboard/Blackboard-SIS-Integration-Resources/blob/main/lis/xml-samples/ILP_LIS_course_section.xml
 
 - **Working Primary Node Mapping Script**  
-  🔗 https://github.com/jkelley-blackboard/SIS-Integration-Field-Mapping-Scripts/blob/main/javascripts/LIS_course_primary_node_department.js
+  🔗 https://github.com/jkelley-blackboard/Blackboard-SIS-Integration-Resources/blob/main/lis/scripts/LIS_course_primary_node_department.js
 
 ---
