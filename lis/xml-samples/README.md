@@ -9,6 +9,8 @@
 |---|---|---|
 | `LIS_courseSection_uploadable_1.xml` | Uploadable | Minimal course section example |
 | `LIS_courseSection_uploadable_2.xml` | Uploadable | Full course section example |
+| `LIS_person_uploadable.xml` | Uploadable | Person record example |
+| `LIS_membership_uploadable.xml` | Uploadable | Membership (enrollment) record example |
 | `ILP_LIS_course_section.xml` | Guidance-only | Native ILP request format (not directly uploadable) |
 | `sample_LIS2_term.xml` | Guidance-only | LIS 2.0 term (group) record example |
 

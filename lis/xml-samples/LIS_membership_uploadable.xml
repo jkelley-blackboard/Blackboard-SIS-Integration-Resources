@@ -1,0 +1,52 @@
+<bulkDataRecord>
+  <transactionRecord>
+    <transactionOpIdentifier>tx1</transactionOpIdentifier>
+    <serviceName>MembershipManagementService</serviceName>
+    <interfaceName>MembershipManager</interfaceName>
+    <operationName>replaceMembership</operationName>
+    <parameterSet>
+      <parameterRecord>
+        <parameterInvoc>In</parameterInvoc>
+        <parameterName>sourcedId</parameterName>
+        <parameterType>GUID</parameterType>
+        <parameterValue>003276-01-0590-1-1-01210-AA0012</parameterValue>  <!-- course.user composite ID for logging -->
+      </parameterRecord>
+      <parameterRecord>
+        <parameterInvoc>In</parameterInvoc>
+        <parameterName>membershipRecord</parameterName>
+        <parameterType>membershipRecord</parameterType>
+        <parameterValue>
+          <membershipRecord>
+            <sourcedGUID>
+              <sourcedId>003276-01-0590-1-1-01210-AA0012</sourcedId>  <!-- batch_uid of course.user -->
+            </sourcedGUID>
+            <membership>
+              <collectionSourcedId>003276-01-0590-1-1-01210</collectionSourcedId>  <!-- batch_uid of course -->
+              <membershipIdType>courseSection</membershipIdType>
+              <member>
+                <personSourcedId>AA0012</personSourcedId>  <!-- batch_uid of user -->
+                <role>
+                  <roleType>Instructor</roleType>  <!-- Role VALUE (e.g. Instructor, Student, TeachingAssistant, Grader) -->
+                  <subRole>Instructor</subRole>
+                  <timeFrame />
+                  <status>Active</status>  <!-- Enable / Disable switch (Active / Inactive) -->
+                  <dataSource>CS</dataSource>
+                  <extension>
+                    <extensionNameVocabulary>unknown</extensionNameVocabulary>
+                    <extensionTypeVocabulary>extensionvocabularyv1p0</extensionTypeVocabulary>
+                    <extensionField>
+                      <fieldName>LIS20DeliverySystem</fieldName>
+                      <fieldType>String</fieldType>
+                      <fieldValue>BB</fieldValue>
+                    </extensionField>
+                  </extension>
+                </role>
+              </member>
+              <dataSource>CS</dataSource>
+            </membership>
+          </membershipRecord>
+        </parameterValue>
+      </parameterRecord>
+    </parameterSet>
+  </transactionRecord>
+</bulkDataRecord>
