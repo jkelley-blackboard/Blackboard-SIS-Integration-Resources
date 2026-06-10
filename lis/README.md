@@ -2,6 +2,8 @@
 
 Resources for Blackboard Learn LIS-based SIS integrations, including custom field mapping scripts, XML samples, and reference documentation.
 
+> All content is the property of Blackboard Inc. and is provided for reference and educational purposes only, without support, maintenance, or warranty of any kind. Use at your own risk.
+
 ## Contents
 
 | Path | Contents |
