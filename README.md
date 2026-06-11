@@ -12,9 +12,8 @@ Resources for LIS-based SIS integrations, including custom field mapping scripts
 
 | Path | Contents |
 |---|---|
-| [`lis/scripts/`](lis/scripts/) | Sample JavaScript field mapping scripts |
+| [`lis/scripting/`](lis/scripting/) | JavaScript field mapping scripts and integration guides |
 | [`lis/xml-samples/`](lis/xml-samples/) | Sample LIS XML files for testing and reference |
-| [`lis/guides/`](lis/guides/) | Scripting guide and integration how-tos |
 | [`lis/data-models/`](lis/data-models/) | Data model reference for accessing SIS data in scripts |
 
 ---
