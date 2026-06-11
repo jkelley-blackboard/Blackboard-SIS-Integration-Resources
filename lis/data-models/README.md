@@ -1,58 +1,63 @@
-# Blackboard SIS Custom Field Mapping Reference
+# Blackboard SIS Custom Field Mapping — Data Model Reference
 
-This document provides **not entirely tested** examples of how to access data fields in Blackboard SIS custom mapping scripts using the Java Map syntax.
+This document provides examples of how to access data fields in Blackboard SIS custom field mapping scripts using the Java method syntax available through the `data` global variable.
+
+> These are reference examples. Some fields marked **(TBD)** are not yet confirmed against a live integration. For working script examples, see [`scripting/`](../scripting/).
 
 ---
 
 ## 1. Person
 
-| Blackboard Field                      | Java Map Syntax                                             |
-|----------------------------------------|-------------------------------------------------------------|
-| External Person Key / Batch UID        | `data.getPerson().getSourcedGUID().getSourcedId()`          |
-| Username / User ID                     | `data.getPerson().getUserName()`                            |
-| First Name                             | `data.getPerson().getName().getGivenName()`                 |
-| Last Name                              | `data.getPerson().getName().getFamilyName()`               |
-| Email Address                          | `data.getPerson().getEmail()`                              |
-| Institution Role                        | `data.getPerson().getRoles().getPrimaryInstitutionRole().getValue()` |
-| Secondary Institution Roles             | `data.getPerson().getRoles().getSecondaryInstitutionRoles()` **(TBD)** |
-| Extensions (pronouns, etc.)             | `data.getPerson().getExtensions().get('fieldName')` **(TBD)** |
+| Blackboard Field | Script Syntax |
+|---|---|
+| External Person Key / Batch UID | `data.getPerson().getSourcedGUID().getSourcedId()` |
+| Username / User ID | `data.getPerson().getUserName()` |
+| First Name | `data.getPerson().getName().getGivenName()` |
+| Last Name | `data.getPerson().getName().getFamilyName()` |
+| Email Address | `data.getPerson().getEmail()` |
+| Primary Institution Role | `data.getPerson().getRoles().get(0).getPrimaryInstitutionRole().getValue()` |
+| Secondary Institution Roles | `data.getPerson().getRoles().getSecondaryInstitutionRoles()` **(TBD)** |
+| Extensions (pronouns, etc.) | `data.getPerson().getExtensions().get('fieldName')` **(TBD)** |
 
 ---
 
 ## 2. Course Section
 
-| Blackboard Field                               | Java Map Syntax                                                  |
-|------------------------------------------------|------------------------------------------------------------------|
-| External Course Key / Course Section SourcedId | `data.getCourseSection().getSourcedGUID().getSourcedId()`        |
-| Course Section Title / Name                     | `data.getCourseSection().getTitle()`                             |
-| Description / Catalog Description             | `data.getCourseSection().getCatalogDescription().getLongDescription()` **or** `.getShortDescription()` if available |
-| Data Source                                     | `data.getCourseSection().getDataSource()`                        |
-| Start Date                                      | `data.getCourseSection().getStartDate()`                         |
-| End Date                                        | `data.getCourseSection().getEndDate()`                           |
-| Term / Academic Session                         | `data.getCourseSection().getAcademicSession()` **(TBD)**          |
-| Available Flag / Is Available                   | `data.getCourseSection().getIsAvailable()` **(TBD)**              |
+| Blackboard Field | Script Syntax |
+|---|---|
+| External Course Key / SourcedId | `data.getCourseSection().getSourcedGUID().getSourcedId()` |
+| Course Title / Name | `data.getCourseSection().getTitle()` |
+| Long Description | `data.getCourseSection().getCatalogDescription().getLongDescription()` |
+| Short Description | `data.getCourseSection().getCatalogDescription().getShortDescription()` |
+| Data Source | `data.getCourseSection().getDataSource()` |
+| Start Date | `data.getCourseSection().getTimeFrames().get(0).getBegin()` |
+| End Date | `data.getCourseSection().getTimeFrames().get(0).getEnd()` |
+| Term / Academic Session | `data.getCourseSection().getAcademicSession()` |
+| Department Name | `data.courseSection.org.orgUnit` |
+| Department ID | `data.courseSection.org.id` |
+| Available Flag | `data.getCourseSection().getIsAvailable()` **(TBD)** |
 
 ---
 
 ## 3. Course Membership
 
-| Blackboard Field                        | Java Map Syntax                                                         |
-|-----------------------------------------|-------------------------------------------------------------------------|
-| External Course Key / Course Section Id | `data.getMembership().getCourseSection().getSourcedGUID().getSourcedId()` **(or similar)** |
-| External Person Key / User Id           | `data.getMembership().getPerson().getSourcedGUID().getSourcedId()`      |
-| Role in Course (Student / Instructor)   | `data.getMembership().getRole()`                                        |
-| Enrollment Date                          | `data.getMembership().getEnrollmentDate()`                              |
-| Availability / Is Available             | `data.getMembership().getIsAvailable()` **(TBD)**                       |
-| Data Source                              | `data.getMembership().getDataSource()`                                 |
+| Blackboard Field | Script Syntax |
+|---|---|
+| External Course Key | `data.getMembership().getCourseSection().getSourcedGUID().getSourcedId()` **(TBD)** |
+| External Person Key | `data.getMembership().getPerson().getSourcedGUID().getSourcedId()` |
+| Role (Student / Instructor) | `data.getMembership().getRole()` |
+| Enrollment Date | `data.getMembership().getEnrollmentDate()` |
+| Availability | `data.getMembership().getIsAvailable()` **(TBD)** |
+| Data Source | `data.getMembership().getDataSource()` |
 
 ---
 
 ## 4. Term (Group Record)
 
-| Blackboard Field                        | Java Map Syntax                                          |
-| --------------------------------------- | -------------------------------------------------------- |
-| **Term Name** (`<shortDescription>`)    | `data.getGroup().getDescription().getShortDescription()` |
-| Term Start Date (`<timeframe><begin>`)  | `data.getGroup().getTimeframe().getBegin()`              |
-| Term End Date (`<timeframe><end>`)      | `data.getGroup().getTimeframe().getEnd()`                |
-| Sourced ID (`<sourcedGUID><sourcedId>`) | `data.getSourcedGUID().getSourcedId()`                   |
-| Data Source                             | `data.getGroup().getDataSource()`                        |
+| Blackboard Field | Script Syntax |
+|---|---|
+| Term Name (`<shortDescription>`) | `data.getGroup().getDescription().getShortDescription()` |
+| Start Date (`<timeframe><begin>`) | `data.getGroup().getTimeframe().getBegin()` |
+| End Date (`<timeframe><end>`) | `data.getGroup().getTimeframe().getEnd()` |
+| Sourced ID | `data.getSourcedGUID().getSourcedId()` |
+| Data Source | `data.getGroup().getDataSource()` |
