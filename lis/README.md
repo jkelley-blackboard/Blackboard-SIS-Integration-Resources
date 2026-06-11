@@ -8,9 +8,8 @@ Resources for Blackboard Learn LIS-based SIS integrations, including custom fiel
 
 | Path | Contents |
 |---|---|
-| [`scripts/`](scripts/) | Sample JavaScript field mapping scripts |
+| [`scripting/`](scripting/) | JavaScript field mapping scripts and integration guides |
 | [`xml-samples/`](xml-samples/) | Sample LIS XML files for testing and reference |
-| [`guides/`](guides/) | Scripting guide and integration how-tos |
 | [`data-models/`](data-models/) | Data model reference for accessing SIS data in scripts |
 
 ## Useful Links
@@ -50,7 +49,7 @@ Comment each major section of the script. Explain *why* logic exists, not just *
 ## 2. Use Helper Functions for Logging
 
 Leverage the provided helper functions to report success, failure, and transformation details to the SIS integration logs.
-Learn more about helpers in [guides/custom_scripting_help.md](guides/custom_scripting_help.md).
+Learn more about helpers in [scripting/custom_scripting_help.md](scripting/custom_scripting_help.md).
 
 Benefits:
 - Clear visibility into script execution
