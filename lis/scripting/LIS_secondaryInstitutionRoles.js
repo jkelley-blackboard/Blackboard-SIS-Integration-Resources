@@ -24,9 +24,11 @@
 
   var secondaryRoles = data.getPerson().getRoles().get(0).getSecondaryInstitutionRoles();
 
+  // Secondary roles are optional — not all person records will carry them.
+  // Log at info level and skip only the attribute (not the whole record).
   if (!secondaryRoles || secondaryRoles.isEmpty()) {
-    helper.logWarning(sField + 'No secondary roles found. Skip Record.');
-    helper.skipRecord();
+    helper.logInfo(sField + 'No secondary roles found. Skipping attribute.');
+    helper.skipAttribute();
     return;
   }
 

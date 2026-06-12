@@ -61,7 +61,7 @@ Blackboard reads secondary `<institutionRole>` elements natively (those that omi
 | `Instructor` | `LSCO_Faculty` |
 | `LSCO_Staff` | `LSCO_Staff` |
 
-Unmapped values pass through unchanged. Skips the record if no secondary roles are found.
+Unmapped values pass through unchanged. Secondary roles are optional — if none are present, skips the attribute (not the record) and logs at info level.
 
 > **Note:** Uses `getSecondaryInstitutionRoles()` (plural). This method name has not yet been confirmed against a live instance's JavaDocs — if it fails, try `getSecondaryInstitutionRole()` (singular), which may return only the first secondary role. See `/webapps/dataIntegration/docs/` on any Learn deployment.
 
