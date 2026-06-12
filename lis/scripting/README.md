@@ -48,6 +48,23 @@ Maps incoming LIS institution role values to Blackboard system role constants:
 
 Skips the record if no role is found.
 
+### `LIS_secondaryInstitutionRoles.js`
+**Field:** `secondaryInstRoles`
+
+Maps secondary institution role values from the LIS person record to valid Blackboard institution role IDs. A person may carry multiple secondary roles alongside their primary role — all are mapped and returned as an array.
+
+Blackboard reads secondary `<institutionRole>` elements natively (those that omit `<primaryroletype>` or set it to false) and flags them as invalid when the role ID doesn't exist in the system. This script intercepts that mapping before the validation runs.
+
+| LIS value | Blackboard value |
+|---|---|
+| `Learner` | `LSCO_Student` |
+| `Instructor` | `LSCO_Faculty` |
+| `LSCO_Staff` | `LSCO_Staff` |
+
+Unmapped values pass through unchanged. Skips the record if no secondary roles are found.
+
+> **Note:** Uses `getSecondaryInstitutionRoles()` (plural). This method name has not yet been confirmed against a live instance's JavaDocs — if it fails, try `getSecondaryInstitutionRole()` (singular), which may return only the first secondary role. See `/webapps/dataIntegration/docs/` on any Learn deployment.
+
 ### `LIS_user_add_node.js`
 **Field:** Added Node Batch UID
 

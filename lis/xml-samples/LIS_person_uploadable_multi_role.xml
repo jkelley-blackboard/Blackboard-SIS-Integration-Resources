@@ -1,0 +1,226 @@
+<bulkDataRecord>
+  <transactionRecord>
+    <transactionOpIdentifier>tx1</transactionOpIdentifier>
+    <serviceName>PersonManagementService</serviceName>
+    <interfaceName>PersonManager</interfaceName>
+    <operationName>replacePerson</operationName>
+    <parameterSet>
+      <parameterRecord>
+        <parameterInvoc>In</parameterInvoc>
+        <parameterName>sourcedId</parameterName>
+        <parameterType>GUID</parameterType>
+        <parameterValue>55556</parameterValue>
+      </parameterRecord>
+      <parameterRecord>
+        <parameterInvoc>In</parameterInvoc>
+        <parameterName>personRecord</parameterName>
+        <parameterType>PersonRecord</parameterType>
+        <parameterValue>
+          <personRecord>
+            <sourcedGUID>
+              <sourcedId>55556</sourcedId>
+              <refAgentInstanceID>ILP</refAgentInstanceID>
+            </sourcedGUID>
+
+            <person>
+
+              <!-- Formatted Name -->
+              <formname>
+                <formnameType>
+                  <instanceIdentifier>
+                    <language>en-US</language>
+                    <textString>FormNameTypeID</textString>
+                  </instanceIdentifier>
+                  <instanceVocabulary>http://www.imsglobal.org/lis/pmsv2p0/formatnmetypevocabularyv1p0</instanceVocabulary>
+                  <instanceValue>
+                    <language>en-US</language>
+                    <textString>Full</textString>
+                  </instanceValue>
+                </formnameType>
+                <formattedName>
+                  <language>en-US</language>
+                  <textString>Firstblah Middleblah Lastblah</textString>  <!-- Full Name VALUE -->
+                </formattedName>
+              </formname>
+
+              <!-- Structured Name -->
+              <name>
+                <nameType>
+                  <instanceIdentifier>
+                    <language>en-US</language>
+                    <textString>NameTypeID</textString>
+                  </instanceIdentifier>
+                  <instanceVocabulary>http://www.imsglobal.org/lis/pmsv2p0/nametypevocabularyv1p0</instanceVocabulary>
+                  <instanceValue>
+                    <language>en-US</language>
+                    <textString>Full</textString>
+                  </instanceValue>
+                </nameType>
+                <partName>
+                  <instanceIdentifier>
+                    <language>en-US</language>
+                    <textString>FirstNameID</textString>
+                  </instanceIdentifier>
+                  <instanceName>
+                    <language>en-US</language>
+                    <textString>First</textString>
+                  </instanceName>
+                  <instanceValue>
+                    <language>en-US</language>
+                    <textString>Firstblah</textString>  <!-- First Name VALUE -->
+                  </instanceValue>
+                </partName>
+                <partName>
+                  <instanceIdentifier>
+                    <language>en-US</language>
+                    <textString>LastNameID</textString>
+                  </instanceIdentifier>
+                  <instanceName>
+                    <language>en-US</language>
+                    <textString>Last</textString>
+                  </instanceName>
+                  <instanceValue>
+                    <language>en-US</language>
+                    <textString>Lastblah</textString>  <!-- Last Name VALUE -->
+                  </instanceValue>
+                </partName>
+                <partName>
+                  <instanceIdentifier>
+                    <language>en-US</language>
+                    <textString>MiddleNameID</textString>
+                  </instanceIdentifier>
+                  <instanceName>
+                    <language>en-US</language>
+                    <textString>Middle</textString>
+                  </instanceName>
+                  <instanceValue>
+                    <language>en-US</language>
+                    <textString>Middleblah</textString>  <!-- Middle Name VALUE -->
+                  </instanceValue>
+                </partName>
+              </name>
+
+              <!-- Contact Info -->
+              <contactinfo>
+                <contactinfoType>
+                  <instanceIdentifier>
+                    <language>en-US</language>
+                    <textString>EmailPrimary</textString>
+                  </instanceIdentifier>
+                  <instanceValue>
+                    <language>en-US</language>
+                    <textString>EmailPrimary</textString>
+                  </instanceValue>
+                </contactinfoType>
+                <contactinfoValue>
+                  <language>en-US</language>
+                  <textString>fl@blahblahblah.edu</textString>  <!-- Email Address VALUE -->
+                </contactinfoValue>
+              </contactinfo>
+
+              <!-- Roles -->
+              <!--
+                A person may have one primary institution role and one or more secondary
+                institution roles. The primary role is indicated by <primaryroletype>true</primaryroletype>.
+                Secondary roles omit the <primaryroletype> element entirely.
+              -->
+              <roles>
+                <enterpriserolesType>
+                  <instanceIdentifier>
+                    <language>en-US</language>
+                    <textString>StudentInformationSystem</textString>
+                  </instanceIdentifier>
+                  <instanceValue>
+                    <language>en-US</language>
+                    <textString>StudentInformationSystem</textString>
+                  </instanceValue>
+                </enterpriserolesType>
+
+                <!-- Primary Institution Role -->
+                <institutionRole>
+                  <institutionroletype>
+                    <instanceIdentifier>
+                      <language>en-US</language>
+                      <textString>Instructor</textString>
+                    </instanceIdentifier>
+                    <instanceValue>
+                      <language>en-US</language>
+                      <textString>Instructor</textString>  <!-- Primary Institution Role VALUE -->
+                    </instanceValue>
+                  </institutionroletype>
+                  <primaryroletype>true</primaryroletype>
+                </institutionRole>
+
+                <!-- Secondary Institution Role 1 -->
+                <institutionRole>
+                  <institutionroletype>
+                    <instanceIdentifier>
+                      <language>en-US</language>
+                      <textString>Learner</textString>
+                    </instanceIdentifier>
+                    <instanceValue>
+                      <language>en-US</language>
+                      <textString>Learner</textString>  <!-- Secondary Institution Role VALUE -->
+                    </instanceValue>
+                  </institutionroletype>
+                </institutionRole>
+
+                <!-- Secondary Institution Role 2 -->
+                <institutionRole>
+                  <institutionroletype>
+                    <instanceIdentifier>
+                      <language>en-US</language>
+                      <textString>LSCO_Staff</textString>
+                    </instanceIdentifier>
+                    <instanceValue>
+                      <language>en-US</language>
+                      <textString>LSCO_Staff</textString>  <!-- Secondary Institution Role VALUE -->
+                    </instanceValue>
+                  </institutionroletype>
+                </institutionRole>
+
+                <!-- User ID -->
+                <userId>
+                  <userIdValue>
+                    <language>en-US</language>
+                    <textString>fl@blahblahblah.edu</textString>  <!-- User_ID / Logon ID VALUE -->
+                  </userIdValue>
+                  <userIdType>
+                    <language>en-US</language>
+                    <textString>Logon ID</textString>
+                  </userIdType>
+                  <password>
+                    <language>en-US</language>
+                    <textString/>
+                  </password>
+                </userId>
+              </roles>
+
+              <dataSource>ILP</dataSource>
+
+              <!-- Extensions: institution-specific fields beyond the LIS standard -->
+              <extension>
+                <extensionField>
+                  <fieldName>bannerSourcedId</fieldName>
+                  <fieldValue>000</fieldValue>  <!-- Banner ID VALUE -->
+                  <fieldType>String</fieldType>
+                </extensionField>
+                <extensionField>
+                  <fieldName>bannerUserName</fieldName>
+                  <fieldValue>userblah</fieldValue>  <!-- Banner Username VALUE -->
+                  <fieldType>String</fieldType>
+                </extensionField>
+                <extensionField>
+                  <fieldName>bannerUdcId</fieldName>
+                  <fieldValue>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</fieldValue>  <!-- Banner UDC ID VALUE -->
+                  <fieldType>String</fieldType>
+                </extensionField>
+              </extension>
+
+            </person>
+          </personRecord>
+        </parameterValue>
+      </parameterRecord>
+    </parameterSet>
+  </transactionRecord>
+</bulkDataRecord>
