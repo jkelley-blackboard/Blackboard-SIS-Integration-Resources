@@ -42,6 +42,8 @@ The Term object creates and manages academic terms in Blackboard Learn. Terms co
 | Duration | `duration` | No | No | `Continuous` \| `Range` \| `Fixed` | `Continuous`: always accessible. `Range`: between `start_date` and `end_date`. `Fixed`: set number of `days_of_use`. |
 | End Date | `end_date` | No | No | `yyyymmdd` | The date the term stops being available. |
 | Start Date | `start_date` | No | No | `yyyymmdd` | The date the term begins to be available. |
+| Term Type | `term_type` | No | No | `a` \| `s` \| `t` \| `q` \| `i` \| `m` \| `u` | Classifies the term: Annual, Semester, Trimester, Quarter, Intersession, Module, Unspecified. |
+| Parent Term Batch Uid | `external_parent_term_key` | No | No | Max 256, multi-byte | `external_term_key` of this term's parent (e.g. Annual → Semester/Trimester/Quarter). Set to `NONE` to remove an existing parent association. |
 | Replacement Batch Uid | `new_external_term_key` | No | Yes | Max 256, multi-byte | Use only when a term's EXTERNAL KEY must change. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.TermReplacementDataSourceBatchUid` |
 | Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
@@ -63,5 +65,4 @@ TERM-F25|SIS-IMPORT-2025|Fall 2025|Y|Range|20250825|20251215|enabled
 
 - **`external_term_key`** may contain only letters, digits, dashes, and periods. No spaces or other punctuation.
 - **Term availability** controls associated course availability when the term's `available_ind` is set to `N`.
-- **Term Type (shipping 4000.15, production 7 May 2026):** The 4000.15 release note confirms Term Type sync via flat file integration. As of this writing the feed header and supported values are not published and the field does not appear in the custom header override list. The underlying database field exists and is visible as a mappable target in the field mapping UI on 4000.15 staging.
-- **Term Hierarchy / Parent Term (UI: 4000.8, SIS: not yet announced):** Parent-child term relationships (Annual → Semester/Trimester/Quarter) shipped as a UI-only feature in 4000.8. No release note has announced SIS or REST support. The underlying field exists in the data model but no feed header or field mapping target row exists on any confirmed system. SIS support is expected in a future release 
+- **Term Type and Parent Term** (`term_type`, `external_parent_term_key`) are documented in the [official header reference](https://help.anthology.com/blackboard/administrator/en/integrations/student-information-system--sis-/snapshot-flat-file/snapshot-flat-file-header-descriptions.html) and confirmed available via the Snapshot Flat File feed.
