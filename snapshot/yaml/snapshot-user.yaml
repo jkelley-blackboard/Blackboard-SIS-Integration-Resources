@@ -1,7 +1,7 @@
 id: snapshot-flatfile-user
 title: "Snapshot Flat File — User"
 published: "2026-04-22"
-edited: "2026-04-22"
+edited: "2026-06-25"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 
 sis_object: Person
@@ -38,7 +38,7 @@ fields:
     header: data_source_key
     required: true
     unique: false
-    format: Max 256
+    format: Max 255
     multibyte: true
     comment: May be supplied by the integration configuration rather than the file.
 

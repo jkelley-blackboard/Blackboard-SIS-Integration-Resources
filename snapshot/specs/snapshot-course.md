@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Course / Organization"
 id: snapshot-flatfile-course
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-04-22"
+edited: "2026-06-25"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -38,7 +38,7 @@ The Course object creates and updates Courses and Organizations in Blackboard Le
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_course_key` | Yes | Yes | Max 64 | Use `external_organization_key` for Organizations. |
-| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Course ID / Organization ID | `course_id` | Yes | Yes | Max 100 | Short name identifying the Course or Organization (e.g. `MATH101_F25`). Use `organization_id` for Organizations. Characters not allowed: space, `&`, `/`, `'`, `+`. Cannot be changed after creation. |
 | Course Name / Organization Name | `course_name` | Yes | No | Max 255, multi-byte | Complete title used for display. Use `organization_name` for Organizations. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |

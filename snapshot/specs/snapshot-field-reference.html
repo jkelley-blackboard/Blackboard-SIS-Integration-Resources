@@ -179,7 +179,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_person_key',required:true,unique:true,format:'Max 64',comment:'Permanent, non-changing identifier. The database cannot merge data between distinct accounts.'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true,comment:'May be supplied by the integration configuration rather than the file.'},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true,comment:'May be supplied by the integration configuration rather than the file.'},
     {name:'First Name',header:'firstname',required:true,unique:false,format:'Max 100',multibyte:true},
     {name:'Last Name',header:'lastname',required:true,unique:false,format:'Max 100',multibyte:true},
     {name:'Username',header:'user_id',required:true,unique:true,format:'Max 50',multibyte:true,comment:'The username used to log into Blackboard. Must be globally unique.'},
@@ -255,7 +255,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_course_key',org_variant:'external_organization_key',required:true,unique:true,format:'Max 64'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true,comment:'May be supplied by the integration configuration rather than the file.'},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true,comment:'May be supplied by the integration configuration rather than the file.'},
     {name:'Course ID / Organization ID',header:'course_id',org_variant:'organization_id',required:true,unique:true,format:'Max 100',comment:'Short name (e.g. MATH101_F25). Characters not allowed: space, &, /, \', +. Cannot be changed after creation.'},
     {name:'Course Name / Organization Name',header:'course_name',org_variant:'organization_name',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Available',header:'available_ind',required:false,unique:false,values:"'Y' | 'N'"},
@@ -310,7 +310,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_term_key',required:true,unique:true,format:'Max 256',multibyte:true,comment:'Letters, digits, dashes, and periods only — no spaces.'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true,comment:'May be supplied by the integration configuration rather than the file.'},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true,comment:'May be supplied by the integration configuration rather than the file.'},
     {name:'Name',header:'name',required:true,unique:false,format:'Max 333',comment:'Name of the term as displayed to users.'},
     {name:'Available',header:'available_ind',required:false,unique:false,values:"'Y' | 'N'"},
     {name:'Days of Use',header:'days_of_use',required:false,unique:false,format:'Numeric',comment:'Used when duration is Fixed.'},
@@ -340,7 +340,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Course / Org Batch Uid',header:'external_course_key',org_variant:'external_organization_key',required:true,unique:false,format:'Max 64',multibyte:true},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true,comment:'May be supplied by the integration configuration rather than the file.'},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true,comment:'May be supplied by the integration configuration rather than the file.'},
     {name:'User Batch Uid',header:'external_person_key',required:true,unique:false,format:'Max 64',multibyte:true},
     {name:'Available',header:'available_ind',required:false,unique:false,values:"'Y' | 'N'"},
     {name:'Cartridge Access',header:'hascartridgeaccess',required:false,unique:false,deprecated:true,comment:'Not supported and targeted for removal. Do not use.'},
@@ -381,7 +381,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_node_key',required:true,unique:true,format:'Max 255',multibyte:true,comment:'Letters, digits, dashes, and periods only — no spaces.'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true,comment:'May be supplied by the integration configuration rather than the file.'},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true,comment:'May be supplied by the integration configuration rather than the file.'},
     {name:'Parent Batch Uid',header:'parent_node_key',required:true,unique:false,format:'Max 64',comment:'The external_node_key of the parent node. Submit parent nodes before child nodes.'},
     {name:'Name',header:'name',required:true,unique:false,format:'Max 255'},
     {name:'Description',header:'description',required:false,unique:false,format:'Max 1000'},
@@ -412,7 +412,7 @@ const SPECS = [
   fields:[
     {name:'Batch Uid',header:'external_association_key',required:true,unique:true,format:'Max 64',comment:'Unique identifier for this association. Convention: concatenate Course and Node batch UIDs (e.g. MATH101-F25_NODE.ENGR.DEPT).'},
     {name:'Course / Org Batch Uid',header:'external_course_key',org_variant:'external_organization_key',required:true,unique:false,format:'Max 64'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Node Batch Uid',header:'external_node_key',required:true,unique:false,format:'Max 64',multibyte:true},
     {name:'Primary Association Indicator',header:'is_primary_association',required:false,unique:false,values:"'Y' | 'N'",comment:'Designates this as the primary association when a course is associated with multiple nodes.'},
     {name:'Replacement Batch Uid',header:'new_external_association_key',required:false,unique:true,format:'Max 64',multibyte:true},
@@ -435,7 +435,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_association_key',required:true,unique:true,format:'Max 64',comment:'Unique identifier. Convention: concatenate User and Node batch UIDs (e.g. STU-100042_NODE.ENGR.DEPT).'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Node Batch Uid',header:'external_node_key',required:true,unique:false,format:'Max 64'},
     {name:'User Batch Uid',header:'external_user_key',required:true,unique:false,format:'Max 64',comment:'The external_person_key of the user to be associated.'},
     {name:'Replacement Batch Uid',header:'new_external_association_key',required:false,unique:true,format:'Max 64',multibyte:true},
@@ -457,7 +457,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_subject_key',required:true,unique:true,format:'Max 64',multibyte:true,comment:'Must be unique across all Subjects, Courses, and Organizations.'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Subject ID',header:'subject_id',required:true,unique:true,format:'Max 100, format: {Title}__{Identifier}',comment:'Two consecutive underscores separate title and identifier. Cannot be changed after creation.'},
     {name:'Subject Name',header:'subject_name',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Subject Type',header:'subject_type',required:true,unique:false,values:'See subject_type_values'},
@@ -490,7 +490,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_program_key',required:true,unique:true,format:'Max 64'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Program ID',header:'program_id',required:true,unique:true,comment:'Short name used to uniquely identify the Program. Cannot be changed after creation.'},
     {name:'Program Name',header:'program_name',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Program Type',header:'program_type',required:true,unique:false,values:'See program_type_values'},
@@ -521,7 +521,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_category_key',required:true,unique:true,format:'Max 64',multibyte:true,comment:'Must be unique. Corresponds to the Category Mnemonic field in the UI.'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Title',header:'title',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Available',header:'available_ind',required:false,unique:false,values:"'Y' | 'N'"},
     {name:'Description',header:'description',required:false,unique:false},
@@ -552,7 +552,7 @@ const SPECS = [
     {name:'Batch Uid',header:'(auto-populated)',required:true,unique:true,comment:'Auto-populated by the system. Do not include in data feeds.'},
     {name:'Category Batch Uid',header:'external_category_key',required:true,unique:false,format:'Max 64'},
     {name:'Course / Org Batch Uid',header:'external_course_key',org_variant:'external_organization_key',required:true,unique:false,format:'Max 64'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Available',header:'available_ind',required:false,unique:false,values:"'Y' | 'N'"},
     {name:'Replacement Data Source Batch Uid',header:'new_data_source_key',required:false,unique:false,comment:'UI mapping: script.flatfile.CourseCatMemReplacementDataSourceBatchUid'},
     {name:'Row Status',header:'row_status',required:false,unique:false,values:"'enabled' | 'disabled' | 'deleted'"},
@@ -590,7 +590,7 @@ const SPECS = [
     {op:'Complete Refresh by Data Source',path:'associateobserver/refreshlegacy'},{op:'Delete',path:'associateobserver/delete'}
   ],
   fields:[
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Observed Student',header:'external_user_key',required:true,unique:false,format:'Max 64',multibyte:true,comment:'Must have Institution Role of Student.'},
     {name:'Observer',header:'external_observer_key',required:true,unique:false,format:'Max 64',multibyte:true,comment:'Must have the system role of Observer.'},
     {name:'Replacement Data Source Batch Uid',header:'new_data_source_key',required:false,unique:false,comment:'UI mapping: script.flatfile.AssociateObserverReplacementDataSourceBatchUid'},
@@ -611,7 +611,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_association_key',required:true,unique:true,format:'Max 64',comment:'Convention: concatenate Program and Subject batch UIDs (e.g. PROG-BSCS_CHEM-SUBJ).'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Program Batch Uid',header:'external_program_key',required:true,unique:false,format:'Max 64'},
     {name:'Subject Batch Uid',header:'external_subject_key',required:true,unique:false,format:'Max 64'},
   ],
@@ -630,7 +630,7 @@ const SPECS = [
     {op:'Complete Refresh by Data Source',path:'secondaryinstrole/refreshlegacy'},{op:'Delete',path:'secondaryinstrole/delete'}
   ],
   fields:[
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Secondary Institution Role ID',header:'role_id',required:true,unique:false,comment:'Must match a valid Institution Role ID. See Administrator Panel > Institution Roles.'},
     {name:'User Batch Uid',header:'external_person_key',required:true,unique:false,format:'Max 64'},
     {name:'Replacement Data Source Batch Uid',header:'new_data_source_key',required:false,unique:false,comment:'UI mapping: script.flatfile.SecondaryInstRoleReplacementDataSourceBatchUid'},
@@ -652,7 +652,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_association_key',required:true,unique:true,format:'Max 64',comment:'Convention: concatenate Subject and Course batch UIDs. Use a dash separator to avoid ambiguity with double-underscore Subject IDs.'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Course Batch Uid',header:'external_course_key',required:true,unique:false,format:'Max 64'},
     {name:'Subject Batch Uid',header:'external_subject_key',required:true,unique:false,format:'Max 64'},
   ],
@@ -672,7 +672,7 @@ const SPECS = [
   ],
   fields:[
     {name:'Batch Uid',header:'external_association_key',required:true,unique:true,format:'Max 64',comment:'Convention: concatenate Subject and Organization batch UIDs (e.g. CHEM-SUBJ_ChemClub).'},
-    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 256',multibyte:true},
+    {name:'Data Source Key',header:'data_source_key',required:true,unique:false,format:'Max 255',multibyte:true},
     {name:'Organization Batch Uid',header:'external_org_key',required:true,unique:false,format:'Max 64'},
     {name:'Subject Batch Uid',header:'external_subject_key',required:true,unique:false,format:'Max 64'},
   ],

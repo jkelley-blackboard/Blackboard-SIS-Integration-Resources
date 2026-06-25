@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Subject"
 id: snapshot-flatfile-subject
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-04-22"
+edited: "2026-06-25"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -34,7 +34,7 @@ The Subject object creates and manages curricular subjects in Blackboard Learn. 
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_subject_key` | Yes | Yes | Max 64, multi-byte | Letters, digits, dashes, and periods only — no spaces. Must be unique across all Subjects, Courses, and Organizations. |
-| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Subject ID | `subject_id` | Yes | Yes | Max 100, format: `{Title}__{Identifier}` | Two consecutive underscores separate title and identifier. Title: letters, numbers, hyphens, periods, underscores only. Identifier: letters and numbers only. No spaces. Example: `CHEM__abc123`. Cannot be changed after creation. |
 | Subject Name | `subject_name` | Yes | No | Max 255, multi-byte | Complete title of the Subject used for display. |
 | Subject Type | `subject_type` | Yes | No | See [Subject Type Values](#subject-type-values) | Indicates the curricular classification of the Subject. |

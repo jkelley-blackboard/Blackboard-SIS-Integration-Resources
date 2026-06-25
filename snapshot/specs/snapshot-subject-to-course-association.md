@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Subject to Course Association"
 id: snapshot-flatfile-subject-to-course-association
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-04-22"
+edited: "2026-06-25"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -34,7 +34,7 @@ The Subject to Course Association object links Courses to Subjects, classifying 
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_association_key` | Yes | Yes | Max 64 | Unique identifier for this Subject-to-Course association. Recommended convention: concatenate the Subject and Course batch UIDs (e.g. `CHEM-SUBJ_MATH101-F25`). Note: Subject batch UIDs may contain double underscores — use a different separator such as a dash or colon to avoid ambiguity. Use a natural unique key from your source system if one exists. |
-| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Course Batch Uid | `external_course_key` | Yes | No | Max 64 | The `external_course_key` of the Course being associated with the Subject. |
 | Subject Batch Uid | `external_subject_key` | Yes | No | Max 64 | The `external_subject_key` of the Subject to which the Course is being associated. |
 

@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Program"
 id: snapshot-flatfile-program
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-04-22"
+edited: "2026-06-25"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -34,7 +34,7 @@ The Program object creates and manages academic programs in Blackboard Learn. Pr
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_program_key` | Yes | Yes | Max 64 | Permanent, non-changing identifier for the Program. |
-| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Program ID | `program_id` | Yes | Yes | — | Short name used by the institution to uniquely identify the Program. Cannot be changed after creation. |
 | Program Name | `program_name` | Yes | No | Max 255, multi-byte | Complete title of the Program used for display. |
 | Program Type | `program_type` | Yes | No | See [Program Type Values](#program-type-values) | Indicates the degree-level classification of the Program. Maps to the underlying `course_type` column. |

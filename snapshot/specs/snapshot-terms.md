@@ -34,7 +34,7 @@ The Term object creates and manages academic terms in Blackboard Learn. Terms co
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_term_key` | Yes | Yes | Max 256, multi-byte | Short name used to uniquely identify the Term. Letters, digits, dashes, and periods only — no spaces. |
-| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Name | `name` | Yes | No | Max 333 | Name of the term as displayed to users. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
 | Days of Use | `days_of_use` | No | No | Numeric | Number of days students may access courses after enrollment. Used when `duration` is `Fixed`. |

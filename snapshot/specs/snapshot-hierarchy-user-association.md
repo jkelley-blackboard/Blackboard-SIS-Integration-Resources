@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Hierarchy User Association"
 id: snapshot-flatfile-hierarchy-user-association
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-04-22"
+edited: "2026-06-25"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -34,7 +34,7 @@ The Hierarchy User Association object associates users with nodes in the Institu
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_association_key` | Yes | Yes | Max 64 | Unique identifier for this user-to-node association. Recommended convention: concatenate the User and Node batch UIDs (e.g. `STU-100042_NODE.ENGR.DEPT`). Use a natural unique key from your source system if one exists. |
-| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Node Batch Uid | `external_node_key` | Yes | No | Max 64 | The `external_node_key` of the target node. Also the Node Identifier found in Edit Node in the UI. |
 | User Batch Uid | `external_user_key` | Yes | No | Max 64 | The `external_person_key` of the user to be associated with this node. |
 | Replacement Batch Uid | `new_external_association_key` | No | Yes | Max 64, multi-byte | Use only when an association's EXTERNAL KEY must change. |
