@@ -13,10 +13,4 @@ For an introduction to the integration type, file format, and a full index of su
 ## Contents
 
 ### [`specs/`](specs/)
-Field-level specifications for all Snapshot Flat File object types in Markdown format.
-
-### [`yaml/`](yaml/)
-Machine-readable YAML versions of each spec. See [`yaml/_schema.md`](yaml/_schema.md) for the schema structure.
-
-### [`reference-site/`](reference-site/)
-A generated HTML reference site built from `reference-site/data.yaml` using `reference-site/generate.py`. Output lives in `reference-site/site/`.
+Field-level specifications for all Snapshot Flat File object types in Markdown format. Also published via [GitHub Pages](https://jkelley-blackboard.github.io/Blackboard-SIS-Integration-Resources/).

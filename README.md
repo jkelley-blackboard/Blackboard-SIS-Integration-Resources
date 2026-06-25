@@ -20,13 +20,11 @@ Resources for LIS-based SIS integrations, including custom field mapping scripts
 
 ## [Snapshot Flat File](snapshot/)
 
-Resources for Snapshot Flat File integrations, including field-level specifications, machine-readable YAML schemas, and a generated HTML reference site.
+Resources for Snapshot Flat File integrations, including field-level specifications for every object type.
 
 | Path | Contents |
 |---|---|
-| [`snapshot/specs/`](snapshot/specs/) | Field-level specs for all Snapshot object types (Markdown) |
-| [`snapshot/yaml/`](snapshot/yaml/) | Machine-readable YAML versions of each spec |
-| [`snapshot/reference-site/`](snapshot/reference-site/) | Generated HTML reference site and its source data/generator |
+| [`snapshot/specs/`](snapshot/specs/) | Field-level specs for all Snapshot object types (Markdown) — also published via [GitHub Pages](https://jkelley-blackboard.github.io/Blackboard-SIS-Integration-Resources/) |
 
 ---
 

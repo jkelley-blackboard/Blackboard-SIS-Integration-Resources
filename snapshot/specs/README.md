@@ -36,6 +36,3 @@ Start here for an introduction to the integration type, file format, and a full 
 - [Hierarchy Node](snapshot-hierarchy-node.md)
 - [Hierarchy User Association](snapshot-hierarchy-user-association.md)
 - [Hierarchy Course Association](snapshot-hierarchy-course-association.md)
-
-### Other
-- [`snapshot-field-reference.html`](snapshot-field-reference.html) — standalone HTML field reference.
