@@ -1046,7 +1046,7 @@ entities:
         unique: false
         header: data_source_key
         description: Key used to establish grouping of category elements.
-        format: Multi-byte characters accepted.
+        format: Max length 255. Multi-byte characters accepted.
 
       - name: Title
         required: true
@@ -1259,7 +1259,7 @@ entities:
         description: >
           Key used to establish grouping of membership elements. May be provided
           by the integration configuration.
-        format: Multi-byte characters accepted.
+        format: Max length 255. Multi-byte characters accepted.
 
       # ── Optional ─────────────────────────────────────────────────────────────
 
