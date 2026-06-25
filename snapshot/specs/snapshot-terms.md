@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Terms"
 id: snapshot-flatfile-terms
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-04-22"
+edited: "2026-06-25"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
