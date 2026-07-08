@@ -33,7 +33,7 @@ The Subject object creates and manages curricular subjects in Blackboard Learn. 
 
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| Batch Uid | `external_subject_key` | Yes | Yes | Max 64, multi-byte | Letters, digits, dashes, and periods only — no spaces. Must be unique across all Subjects, Courses, and Organizations. |
+| Batch Uid | `external_subject_key` | Yes | Yes | Max 64, multi-byte | No spaces. Must be unique across all Subjects, Courses, and Organizations. |
 | Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Subject ID | `subject_id` | Yes | Yes | Max 100, format: `{Title}__{Identifier}` | Two consecutive underscores separate title and identifier. Title: letters, numbers, hyphens, periods, underscores only. Identifier: letters and numbers only. No spaces. Example: `CHEM__abc123`. Cannot be changed after creation. |
 | Subject Name | `subject_name` | Yes | No | Max 255, multi-byte | Complete title of the Subject used for display. |
@@ -65,7 +65,7 @@ Header row is required. Column order is flexible. Values are pipe-delimited.
 
 ```text
 external_subject_key|data_source_key|subject_id|subject_name|subject_type|available_ind|row_status
-CHEM-SUBJ|SIS-IMPORT-2025|CHEM__abc123|Chemistry|U|Y|enabled
+CHEM__abc123|SIS-IMPORT-2025|CHEM__abc123|Chemistry|U|Y|enabled
 ```
 
 ---
@@ -75,3 +75,4 @@ CHEM-SUBJ|SIS-IMPORT-2025|CHEM__abc123|Chemistry|U|Y|enabled
 - **`subject_id` cannot be changed** after creation.
 - **`subject_id` format requires two consecutive underscores** separating the title portion and the identifier portion (e.g. `CHEM__abc123`).
 - **`external_subject_key` must be unique** across all Subjects, Courses, and Organizations — not just within Subjects.
+- Like with courses, Subjects created in the GUI will have key and id values that match.  The key is not displayed in the GUI.
