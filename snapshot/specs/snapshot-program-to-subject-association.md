@@ -11,8 +11,8 @@ author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 
 **SIS Object:** Program to Subject Association  
 **Endpoint:** `/endpoint/programtosubjectassociation/`  
-**Insert/Update behavior:** Smart Insert or Update  
-**Delete behavior:** Disable
+**Insert behavior:** Smart Insert only — updates are not supported  
+**Delete behavior:** Purge
 
 The Program to Subject Association object links Subjects to Programs, establishing the curricular relationship between a degree program and its constituent subject areas.
 
@@ -56,3 +56,4 @@ PROG-BSCS_CHEM-SUBJ|SIS-IMPORT-2025|PROG-BSCS|CHEM-SUBJ
 - **Minimum required headers:** `external_association_key`, `data_source_key`, `external_program_key`, `external_subject_key`.
 - **`external_association_key`** must be unique. The recommended convention is to concatenate the Program and Subject batch UIDs. If your source system has a natural unique key, that may be used instead.
 - **Both the Program and Subject must already exist** before creating this association.
+- **Updates are not supported.** To change an association, delete the existing record and create a new one.

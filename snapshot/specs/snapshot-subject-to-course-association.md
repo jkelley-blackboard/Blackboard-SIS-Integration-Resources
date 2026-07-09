@@ -11,8 +11,8 @@ author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 
 **SIS Object:** Subject to Course Association  
 **Endpoint:** `/endpoint/subjecttocourseassociation/`  
-**Insert/Update behavior:** Smart Insert or Update  
-**Delete behavior:** Disable
+**Insert behavior:** Smart Insert only — updates are not supported  
+**Delete behavior:** Purge
 
 The Subject to Course Association object links Courses to Subjects, classifying individual course offerings under their curricular subject area.
 
@@ -56,3 +56,4 @@ CHEM-SUBJ_MATH101-F25|SIS-IMPORT-2025|CHEM-SUBJ|MATH101-F25
 - **Minimum required headers:** `external_association_key`, `data_source_key`, `external_course_key`, `external_subject_key`.
 - **`external_association_key`** must be unique. The recommended convention is to concatenate the Subject and Course batch UIDs. Because Subject IDs use double underscores, use a different separator (e.g. a dash) when building the association key to avoid ambiguity.
 - **Both the Subject and Course must already exist** before creating this association.
+- **Updates are not supported.** To change an association, delete the existing record and create a new one.

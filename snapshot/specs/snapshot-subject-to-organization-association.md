@@ -11,8 +11,8 @@ author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 
 **SIS Object:** Subject to Organization Association  
 **Endpoint:** `/endpoint/subjecttoorgassociation/`  
-**Insert/Update behavior:** Smart Insert or Update  
-**Delete behavior:** Disable
+**Insert behavior:** Smart Insert only — updates are not supported  
+**Delete behavior:** Purge
 
 The Subject to Organization Association object links Organizations to Subjects, classifying organization offerings under their curricular subject area.
 
@@ -56,3 +56,4 @@ CHEM-SUBJ_ChemClub|SIS-IMPORT-2025|CHEM-SUBJ|ChemClub
 - **Minimum required headers:** `external_association_key`, `data_source_key`, `external_org_key`, `external_subject_key`.
 - **`external_association_key`** must be unique. The recommended convention is to concatenate the Subject and Organization batch UIDs. If your source system has a natural unique key, that may be used instead.
 - **Both the Subject and Organization must already exist** before creating this association.
+- **Updates are not supported.** To change an association, delete the existing record and create a new one.
