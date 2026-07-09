@@ -40,7 +40,7 @@ The Category Membership object associates Courses and Organizations with catalog
 | Batch Uid | `(auto-populated)` | Yes | Yes | — | Auto-populated by the system. Do not include in data feeds. |
 | Category Batch Uid | `external_category_key` | Yes | No | Max 64 | The `external_category_key` of the category to which to add the course or organization. |
 | Course / Org Batch Uid | `external_course_key` | Yes | No | Max 64 | Use `external_organization_key` for Organizations. |
-| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.CourseCatMemReplacementDataSourceBatchUid` |
 | Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |

@@ -34,7 +34,7 @@ The Program to Subject Association object links Subjects to Programs, establishi
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_association_key` | Yes | Yes | Max 64 | Unique identifier for this Program-to-Subject association. Recommended convention: concatenate the Program and Subject batch UIDs (e.g. `PROG-BSCS_CHEM-SUBJ`). Use a natural unique key from your source system if one exists. |
-| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Program Batch Uid | `external_program_key` | Yes | No | Max 64 | The `external_program_key` of the Program to which the Subject is being associated. |
 | Subject Batch Uid | `external_subject_key` | Yes | No | Max 64 | The `external_subject_key` of the Subject being associated with the Program. |
 

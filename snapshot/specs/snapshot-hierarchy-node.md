@@ -34,7 +34,7 @@ The Hierarchy Node object creates and manages nodes in the Institutional Hierarc
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_node_key` | Yes | Yes | Max 255, multi-byte | Letters, digits, dashes, and periods only — no spaces. |
-| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Parent Batch Uid | `parent_node_key` | Yes | No | Max 64 | The `external_node_key` of the parent node. Submit parent nodes before child nodes. |
 | Name | `name` | Yes | No | Max 255 | Node name as displayed in the UI. |
 | Description | `description` | No | No | Max 1000 | Description of the node. |

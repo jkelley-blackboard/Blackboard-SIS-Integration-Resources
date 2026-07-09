@@ -34,7 +34,7 @@ The User object provisions and updates user accounts in Blackboard Learn. Each u
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_person_key` | Yes | Yes | Max 64 | Permanent, non-changing identifier. The database cannot merge data between distinct accounts. |
-| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | First Name | `firstname` | Yes | No | Max 100, multi-byte |  |
 | Last Name | `lastname` | Yes | No | Max 100, multi-byte |  |
 | Username | `user_id` | Yes | Yes | Max 50, multi-byte | The username used to log into Blackboard. Must be globally unique. |

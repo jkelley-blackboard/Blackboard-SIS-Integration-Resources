@@ -38,7 +38,7 @@ The Category object creates and manages catalog categories for Courses and Organ
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_category_key` | Yes | Yes | Max 64, multi-byte | Must be unique. Corresponds to the Category Mnemonic field in the UI. |
-| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Title | `title` | Yes | No | Max 255, multi-byte | The name of the category as displayed to users in the UI. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
 | Description | `description` | No | No | — | Category description. |

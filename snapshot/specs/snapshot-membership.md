@@ -38,7 +38,7 @@ The Membership object creates and manages enrollments and staff assignments for 
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Course / Org Batch Uid | `external_course_key` | Yes | No | Max 64, multi-byte | Use `external_organization_key` for Organizations. |
-| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | User Batch Uid | `external_person_key` | Yes | No | Max 64, multi-byte | The `external_person_key` of the user being enrolled. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
 | Cartridge Access | `hascartridgeaccess` | No | No | — | **Deprecated.** Not supported and targeted for removal. Do not use. |

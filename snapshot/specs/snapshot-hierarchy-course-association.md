@@ -39,7 +39,7 @@ The Hierarchy Course Association object associates Courses and Organizations wit
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_association_key` | Yes | Yes | Max 64 | Unique identifier for this course-to-node association. Recommended convention: concatenate the Course and Node batch UIDs (e.g. `MATH101-F25_NODE.ENGR.DEPT`). Use a natural unique key from your source system if one exists. |
 | Course / Org Batch Uid | `external_course_key` | Yes | No | Max 64 | The `external_course_key` of the course to be associated. Use `external_organization_key` for Organizations. |
-| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Node Batch Uid | `external_node_key` | Yes | No | Max 64, multi-byte | The `external_node_key` of the target node. |
 | Primary Association Indicator | `is_primary_association` | No | No | `Y` \| `N` | Designates this as the primary association when a course is associated with multiple nodes. |
 | Replacement Batch Uid | `new_external_association_key` | No | Yes | Max 64, multi-byte | Use only when an association's EXTERNAL KEY must change. |

@@ -34,7 +34,7 @@ The Subject to Organization Association object links Organizations to Subjects, 
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Batch Uid | `external_association_key` | Yes | Yes | Max 64 | Unique identifier for this Subject-to-Organization association. Recommended convention: concatenate the Subject and Organization batch UIDs (e.g. `CHEM-SUBJ_ChemClub`). Use a natural unique key from your source system if one exists. |
-| Data Source Key | `data_source_key` | Yes | No | Max 255, multi-byte | May be supplied by the integration configuration rather than the file. |
+| Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Organization Batch Uid | `external_org_key` | Yes | No | Max 64 | The `external_organization_key` of the Organization being associated with the Subject. |
 | Subject Batch Uid | `external_subject_key` | Yes | No | Max 64 | The `external_subject_key` of the Subject to which the Organization is being associated. |
 
