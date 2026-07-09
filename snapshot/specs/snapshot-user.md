@@ -48,13 +48,15 @@ The User object provisions and updates user accounts in Blackboard Learn. Each u
 | Education Level | `educ_level` | No | No | See [Education Level Values](#education-level-values) |  |
 | Email | `email` | No | No | Max 100 | Blackboard recommends this not be null — users without an email address cannot send email. |
 | Gender | `gender` | No | No | `Not Disclosed` \| `Male` \| `Female` |  |
+| Home Fax | `h_fax` | No | No | Max 50, multi-byte |  |
 | Home Phone | `h_phone_1` | No | No | Max 50, multi-byte |  |
 | Home Phone (Secondary) | `h_phone_2` | No | No | Max 50, multi-byte |  |
 | Institution Email | `inst_email` | No | Yes | Max 254 | Can be set to null. No email communications are sent to this address. Used for third-party integrations only. |
 | Job Title | `job_title` | No | No | Max 100, multi-byte |  |
+| Language Pack | `locale` | No | No | Max 20, e.g. `fr_FR` | Identifier for the preferred language pack. |
 | Middle Name | `middlename` | No | No | Max 100, multi-byte |  |
 | Mobile Phone | `m_phone` | No | No | Max 50, multi-byte |  |
-| Name Pronunciation | `TBC` | No | No | Max 1000, multi-byte | Phonetic spelling or pronunciation guide. Header value pending confirmation. |
+| Name Pronunciation | `pronunciation` | No | No | Max 1000, multi-byte | Phonetic spelling or pronunciation guide. |
 | Other Name | `othername` | No | No | Max 100 | Alternate preferred name. |
 | Password | `passwd` | No | No | Max 32, multi-byte | If not provided, Learn auto-populates a SHA-512 hash. |
 | Password Encryption Type | `pwencryptiontype` | No | No | `MD5` \| `SSHA` |  |
@@ -71,7 +73,8 @@ The User object provisions and updates user accounts in Blackboard Learn. Each u
 | System Role | `system_role` | No | No | See [System Role Values](#system-role-values) | Defaults to `none` if not provided. |
 | Title | `title` | No | No | Max 100, multi-byte |  |
 | Website | `webpage` | No | No | Max 100 | URL of the user's personal web page. |
-| Work Phone | `b_Phone_1` | No | No | Max 50, multi-byte |  |
+| Work Fax | `b_fax` | No | No | Max 50, multi-byte |  |
+| Work Phone | `b_phone_1` | No | No | Max 50, multi-byte |  |
 | Work Phone (Secondary) | `b_phone_2` | No | No | Max 50, multi-byte |  |
 | Zip / Postal Code | `zip_code` | No | No | Max 50, multi-byte |  |
 
