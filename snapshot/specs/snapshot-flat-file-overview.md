@@ -54,7 +54,7 @@ Every object requires a `data_source_key` that groups records for management pur
 | Behavior | Description | Objects |
 | :--- | :--- | :--- |
 | **Disable** | Record remains visible but is inaccessible. Can be re-enabled. | User, Course, Membership, Terms, Category, Subject, Program, Secondary Institution Role, Observer Association, Category Membership |
-| **Purge** | Record is permanently removed and cannot be recovered. | Hierarchy Node, Hierarchy User Association, Hierarchy Course Association, Course Standard Association |
+| **Purge** | Record is permanently removed and cannot be recovered. | Hierarchy Node, Hierarchy User Association, Hierarchy Course Association, Course Standard Association, Program to Subject Association, Subject to Course Association, Subject to Organization Association |
 
 ---
 
@@ -91,9 +91,9 @@ The following objects are supported by the Snapshot Flat File integration. Five 
 | :--- | :--- | :--- | :--- |
 | [Subject](./snapshot-subject.md) | `subject` | Subject | Disable |
 | [Program](./snapshot-program.md) | `program` | Program | Disable |
-| [Program to Subject Association](./snapshot-program-to-subject-association.md) | `programtosubjectassociation` | Program to Subject Association | Disable |
-| [Subject to Course Association](./snapshot-subject-to-course-association.md) | `subjecttocourseassociation` | Subject to Course Association | Disable |
-| [Subject to Organization Association](./snapshot-subject-to-organization-association.md) | `subjecttoorgassociation` | Subject to Organization Association | Disable |
+| [Program to Subject Association](./snapshot-program-to-subject-association.md) | `programtosubjectassociation` | Program to Subject Association | Purge |
+| [Subject to Course Association](./snapshot-subject-to-course-association.md) | `subjecttocourseassociation` | Subject to Course Association | Purge |
+| [Subject to Organization Association](./snapshot-subject-to-organization-association.md) | `subjecttoorgassociation` | Subject to Organization Association | Purge |
 | [Course Standard Association](./snapshot-course-standard-association.md) | `standardsassociation` | Goal / Standard Association | Purge |
 
 ### Institutional Hierarchy
