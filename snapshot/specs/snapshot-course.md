@@ -65,7 +65,7 @@ The Course object creates and updates Courses and Organizations in Blackboard Le
 | Replacement Batch Uid | `new_external_course_key` | No | Yes | Max 64, multi-byte | Use only when the EXTERNAL KEY must change. Use `new_external_organization_key` for organizations. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.CourseReplacementDataSourceBatchUid` |
 | Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
-| Course View / Organization View | `course_view` | No | No | `Original` \| `Ultra` \| `Instructor choice` | Determines which course view will appear for new courses. This field is insert only and can't be updated through the SIS framework. |
+| Course View / Organization View | `course_experience` | No | No | `Original` \| `Ultra` \| `Instructor choice` | Determines which course view will appear for new courses. Use `organization_experience` for Organizations. This field is insert only and can't be updated through the SIS framework. |
 
 ---
 
