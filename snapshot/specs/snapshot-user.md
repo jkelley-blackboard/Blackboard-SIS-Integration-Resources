@@ -134,4 +134,4 @@ STU-100042|SIS-IMPORT-2025|Maria|Santos|msantos|msantos@university.edu|Y|Student
 - **Email.** Blackboard strongly recommends `email` not be null. Users without an email address cannot send email from within Blackboard.
 - **`inst_email`** is a unique identifier used for third-party integrations only. No Blackboard email communications are sent to this address. It cannot be set via the batch file UI (Users > Create).
 - **`domain_name`** is set at insert only. Subsequent updates to this field are silently ignored.
-- **Data Source Key** may be supplied by the integration configuration. If configured at the integration level it does not need to appear in the file.
+- **`data_source_key`** may be supplied by the integration configuration. If configured at the integration level it does not need to appear in the file.
