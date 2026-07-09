@@ -61,11 +61,11 @@ The Course object creates and updates Courses and Organizations in Blackboard Le
 | Service Level Type | `service_level` | No | No | See [Service Level Values](#service-level-values) | Specifies the type of course. Not typically used in data feeds — set automatically by the endpoint. |
 | Source Copy Key | `template_course_key` | No | No | Max 64, multi-byte | External key of the content source for copy operations. Use `template_organization_key` for organizations. |
 | Start Date | `start_date` | No | No | `yyyymmdd` | Date the course begins to be available. |
-| Term Key | `external_term_key` | No | No | Max 256 | External key of the term to which this course is associated. |
+| Term Key | `term_key` | No | No | Max 256 | External key of the term to which this course is associated. |
 | Replacement Batch Uid | `new_external_course_key` | No | Yes | Max 64, multi-byte | Use only when the EXTERNAL KEY must change. Use `new_external_organization_key` for organizations. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.CourseReplacementDataSourceBatchUid` |
 | Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
-| Course View / Organizaion View | `course_view` | No | No | `Original` \| `Ultra` \| `Instructor choice` | Determines which course view will appear for new courses. This field is insert only and can't be updated through the SIS framework. |
+| Course View / Organization View | `course_view` | No | No | `Original` \| `Ultra` \| `Instructor choice` | Determines which course view will appear for new courses. This field is insert only and can't be updated through the SIS framework. |
 
 ---
 
@@ -96,7 +96,7 @@ The Course object creates and updates Courses and Organizations in Blackboard Le
 Header row is required. Column order is flexible. Values are pipe-delimited.
 
 ```text
-external_course_key|data_source_key|course_id|course_name|available_ind|duration|start_date|end_date|external_term_key|row_status
+external_course_key|data_source_key|course_id|course_name|available_ind|duration|start_date|end_date|term_key|row_status
 MATH101-F25|SIS-IMPORT-2025|MATH101_F25|Calculus I - Fall 2025|Y|R|20250825|20251215|TERM-F25|enabled
 ```
 
