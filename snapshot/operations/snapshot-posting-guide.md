@@ -35,7 +35,7 @@ curl -w "\n%{http_code}\n" \
   "https://${LEARN_HOST}/webapps/bb-data-integration-flatfile-${BB_ID}/endpoint/${OBJECT}/${OPERATION}"
 ```
 
-- `{object}` — endpoint slug from the [Overview](../specs/snapshot-flat-file-overview.md#complete-endpoint-reference) table, e.g. `person`, `course`, `membership`.
+- `{object}` — endpoint slug from the [Overview](../snapshot-flat-file-overview.md#complete-endpoint-reference) table, e.g. `person`, `course`, `membership`.
 - `{operation}` — `store`, `refresh`, or `delete`.
 - `-k` (insecure/skip TLS verification) should only ever be used against a known test/sandbox host with a self-signed cert — never against production.
 - `-w "%{http_code}"` surfaces the HTTP status code so a failed request isn't mistaken for success.
@@ -59,7 +59,7 @@ Capture this reference code from the response body. A 2xx/success response here 
 Run through this before firing any request that isn't a `store` against a test environment:
 
 1. **Confirm the target host.** Double-check `{learn-host}` resolves to the environment you intend (Test/Stage vs. Production). It's easy to fire a script at the wrong environment.
-2. **Confirm the operation.** `store` is additive/idempotent (smart insert-or-update). `refresh` will disable or purge any record *not* present in the submitted file across the whole integration. `delete` acts only on records listed in the file. See the [Delete Behaviors](../specs/snapshot-flat-file-overview.md#delete-behaviors) table — some objects are purged, not disabled, and purge is not recoverable.
+2. **Confirm the operation.** `store` is additive/idempotent (smart insert-or-update). `refresh` will disable or purge any record *not* present in the submitted file across the whole integration. `delete` acts only on records listed in the file. See the [Delete Behaviors](../snapshot-flat-file-overview.md#delete-behaviors) table — some objects are purged, not disabled, and purge is not recoverable.
 3. **Confirm the Data Source Key.** It must already exist in **Administrator Panel > Data Integration > Data Source Keys**, and must match what the file (or the integration config) expects.
 4. **Validate the file before sending.** Header row present, pipe-delimited, UTF-8, required columns per the relevant object spec. Sending a malformed file to `refresh` is more costly than to `store` since it defines "everything that should still exist."
 5. **Dry-run on Test/Stage first** for anything other than a small `store` batch, if a non-production Learn instance is available to you.

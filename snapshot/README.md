@@ -6,7 +6,7 @@ This section contains resources for the Blackboard Learn Snapshot Flat File inte
 
 For an introduction to the integration type, file format, and a full index of supported objects, start here:
 
-**[Snapshot Flat File — Overview](specs/snapshot-flat-file-overview.md)**
+**[Snapshot Flat File — Overview](snapshot-flat-file-overview.md)**
 
 ---
 

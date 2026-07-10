@@ -4,7 +4,7 @@ Field-level specifications for all Snapshot Flat File object types.
 
 Start here for an introduction to the integration type, file format, and a full index of supported objects:
 
-**[Snapshot Flat File — Overview](snapshot-flat-file-overview.md)**
+**[Snapshot Flat File — Overview](../snapshot-flat-file-overview.md)**
 
 Ready to actually send a request? See [Posting Requests](../operations/snapshot-posting-guide.md) in [`operations/`](../operations/).
 

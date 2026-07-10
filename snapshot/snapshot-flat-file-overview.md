@@ -66,43 +66,43 @@ The following objects are supported by the Snapshot Flat File integration. Five 
 
 | Object | Endpoint Slug | SIS Object | Delete Behavior |
 | :--- | :--- | :--- | :--- |
-| [User](./snapshot-user.md) | `person` | Person | Disable |
-| [Course / Organization](./snapshot-course.md) | `course` / `organization` | Course or Organization | Disable |
-| [Course / Organization Membership](./snapshot-membership.md) | `membership` / `organizationmembership` | Enrollments & Staff Assignments | Disable |
-| [Terms](./snapshot-terms.md) | `term` | Term | Disable |
+| [User](specs/snapshot-user.md) | `person` | Person | Disable |
+| [Course / Organization](specs/snapshot-course.md) | `course` / `organization` | Course or Organization | Disable |
+| [Course / Organization Membership](specs/snapshot-membership.md) | `membership` / `organizationmembership` | Enrollments & Staff Assignments | Disable |
+| [Terms](specs/snapshot-terms.md) | `term` | Term | Disable |
 
 ### Roles & Associations
 
 | Object | Endpoint Slug | SIS Object | Delete Behavior |
 | :--- | :--- | :--- | :--- |
-| [Secondary Institution Role](./snapshot-secondary-institution-role.md) | `secondaryinstrole` | User Secondary Institution Role | Disable |
-| [Observer Association](./snapshot-observer-association.md) | `associateobserver` | Observer Association | Disable |
+| [Secondary Institution Role](specs/snapshot-secondary-institution-role.md) | `secondaryinstrole` | User Secondary Institution Role | Disable |
+| [Observer Association](specs/snapshot-observer-association.md) | `associateobserver` | Observer Association | Disable |
 
 ### Catalog
 
 | Object | Endpoint Slug | SIS Object | Delete Behavior |
 | :--- | :--- | :--- | :--- |
-| [Category](./snapshot-category.md) | `coursecategory` / `organizationcategory` | Course / Org Category | Disable |
-| [Category Membership](./snapshot-category-membership.md) | `coursecategorymembership` / `organizationcategorymembership` | Course / Org Category Membership | Disable |
+| [Category](specs/snapshot-category.md) | `coursecategory` / `organizationcategory` | Course / Org Category | Disable |
+| [Category Membership](specs/snapshot-category-membership.md) | `coursecategorymembership` / `organizationcategorymembership` | Course / Org Category Membership | Disable |
 
 ### Curricular Structure
 
 | Object | Endpoint Slug | SIS Object | Delete Behavior |
 | :--- | :--- | :--- | :--- |
-| [Subject](./snapshot-subject.md) | `subject` | Subject | Disable |
-| [Program](./snapshot-program.md) | `program` | Program | Disable |
-| [Program to Subject Association](./snapshot-program-to-subject-association.md) | `programtosubjectassociation` | Program to Subject Association | Purge |
-| [Subject to Course Association](./snapshot-subject-to-course-association.md) | `subjecttocourseassociation` | Subject to Course Association | Purge |
-| [Subject to Organization Association](./snapshot-subject-to-organization-association.md) | `subjecttoorgassociation` | Subject to Organization Association | Purge |
-| [Course Standard Association](./snapshot-course-standard-association.md) | `standardsassociation` | Goal / Standard Association | Purge |
+| [Subject](specs/snapshot-subject.md) | `subject` | Subject | Disable |
+| [Program](specs/snapshot-program.md) | `program` | Program | Disable |
+| [Program to Subject Association](specs/snapshot-program-to-subject-association.md) | `programtosubjectassociation` | Program to Subject Association | Purge |
+| [Subject to Course Association](specs/snapshot-subject-to-course-association.md) | `subjecttocourseassociation` | Subject to Course Association | Purge |
+| [Subject to Organization Association](specs/snapshot-subject-to-organization-association.md) | `subjecttoorgassociation` | Subject to Organization Association | Purge |
+| [Course Standard Association](specs/snapshot-course-standard-association.md) | `standardsassociation` | Goal / Standard Association | Purge |
 
 ### Institutional Hierarchy
 
 | Object | Endpoint Slug | SIS Object | Delete Behavior |
 | :--- | :--- | :--- | :--- |
-| [Hierarchy Node](./snapshot-hierarchy-node.md) | `node` | Hierarchy Node | Purge |
-| [Hierarchy User Association](./snapshot-hierarchy-user-association.md) | `userassociation` | User Association | Purge |
-| [Hierarchy Course Association](./snapshot-hierarchy-course-association.md) | `courseassociation` / `organizationassociation` | Course / Org Association | Purge |
+| [Hierarchy Node](specs/snapshot-hierarchy-node.md) | `node` | Hierarchy Node | Purge |
+| [Hierarchy User Association](specs/snapshot-hierarchy-user-association.md) | `userassociation` | User Association | Purge |
+| [Hierarchy Course Association](specs/snapshot-hierarchy-course-association.md) | `courseassociation` / `organizationassociation` | Course / Org Association | Purge |
 
 ---
 
