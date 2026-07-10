@@ -3,7 +3,7 @@ title: "Snapshot Flat File — User"
 id: snapshot-flatfile-user
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-06-25"
+edited: "2026-07-10"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -41,25 +41,25 @@ The User object provisions and updates user accounts in Blackboard Learn. Each u
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
 | Birthdate | `birthdate` | No | No | `yyyymmdd` |  |
 | City | `city` | No | No | Max 50, multi-byte |  |
-| Company | `company` | No | No | Max 100, multi-byte |  |
+| Company | `company` | No | No | Max 50, multi-byte |  |
 | Country | `country` | No | No | Max 50, multi-byte |  |
 | Department | `department` | No | No | Max 100, multi-byte |  |
 | Domain Name | `domain_name` | No | No | Max 255 | Must match a configured hostname. Invalid values silently ignored. Set at insert only — updates are ignored. e.g. `blackboard.college.edu` |
 | Education Level | `educ_level` | No | No | See [Education Level Values](#education-level-values) |  |
 | Email | `email` | No | No | Max 100 | Blackboard recommends this not be null — users without an email address cannot send email. |
-| Gender | `gender` | No | No | `Not Disclosed` \| `Male` \| `Female` |  |
-| Home Fax | `h_fax` | No | No | Max 50, multi-byte |  |
+| Gender | `gender` | No | No | `Not Disclosed` \| `Male` \| `Female` \| `Other` |  |
+| Home Fax | `h_fax` | No | No | Max 50, multi-byte | Not present on the Create/Edit User page — unlike Work Fax, there is no Home Fax input in the GUI. |
 | Home Phone | `h_phone_1` | No | No | Max 50, multi-byte |  |
-| Home Phone (Secondary) | `h_phone_2` | No | No | Max 50, multi-byte |  |
+| Home Phone (Secondary) | `h_phone_2` | No | No | Max 50, multi-byte | Not present on the Create/Edit User page — only a single Home Phone field exists in the GUI. |
 | Institution Email | `inst_email` | No | Yes | Max 254 | Can be set to null. No email communications are sent to this address. Used for third-party integrations only. |
 | Job Title | `job_title` | No | No | Max 100, multi-byte |  |
-| Language Pack | `locale` | No | No | Max 20, e.g. `fr_FR` | Identifier for the preferred language pack. |
+| Language Pack | `locale` | No | No | Max 20, e.g. `fr_FR` | Identifier for the preferred language pack. Not present on the Create/Edit User page. |
 | Middle Name | `middlename` | No | No | Max 100, multi-byte |  |
 | Mobile Phone | `m_phone` | No | No | Max 50, multi-byte |  |
 | Name Pronunciation | `pronunciation` | No | No | Max 1000, multi-byte | Phonetic spelling or pronunciation guide. |
 | Other Name | `othername` | No | No | Max 100 | Alternate preferred name. |
 | Password | `passwd` | No | No | Max 32, multi-byte | If not provided, Learn auto-populates a SHA-512 hash. |
-| Password Encryption Type | `pwencryptiontype` | No | No | `MD5` \| `SSHA` |  |
+| Password Encryption Type | `pwencryptiontype` | No | No | `MD5` \| `SSHA` | No corresponding GUI field — batch-only directive telling the import how to interpret a pre-hashed `passwd` value. |
 | Primary Institution Role | `institution_role` | No | No | — | Determines the user's view of Portal Modules. See Manage Institution Roles in System Admin for valid values on your system. |
 | Pronouns | `pronouns` | No | No | Max 1000 | Multiple values accepted using comma as delimiter. |
 | Replacement Batch Uid | `new_external_person_key` | No | Yes | Max 64, multi-byte | Use only when a user's `external_person_key` must change. |
@@ -68,30 +68,23 @@ The User object provisions and updates user accounts in Blackboard Learn. Each u
 | State / Province | `state` | No | No | Max 50, multi-byte |  |
 | Street 1 | `street_1` | No | No | Max 100, multi-byte |  |
 | Street 2 | `street_2` | No | No | Max 100, multi-byte |  |
-| Student ID | `student_id` | No | No | Max 100, multi-byte | Display only — not used for lookup or matching. |
+| Student ID | `student_id` | No | No | Max 50, multi-byte | Display only — not used for lookup or matching. |
 | Suffix | `suffix` | No | No | Max 100, multi-byte |  |
 | System Role | `system_role` | No | No | See [System Role Values](#system-role-values) | Defaults to `none` if not provided. |
 | Title | `title` | No | No | Max 100, multi-byte |  |
 | Website | `webpage` | No | No | Max 100 | URL of the user's personal web page. |
 | Work Fax | `b_fax` | No | No | Max 50, multi-byte |  |
 | Work Phone | `b_phone_1` | No | No | Max 50, multi-byte |  |
-| Work Phone (Secondary) | `b_phone_2` | No | No | Max 50, multi-byte |  |
+| Work Phone (Secondary) | `b_phone_2` | No | No | Max 50, multi-byte | Not present on the Create/Edit User page — only a single Work Phone field exists in the GUI. |
 | Zip / Postal Code | `zip_code` | No | No | Max 50, multi-byte |  |
 
 ---
 
 ## Education Level Values
 
-| Value |
-| :--- |
-| `K-8` |
-| `high school` |
-| `freshman` |
-| `sophomore` |
-| `junior` |
-| `senior` |
-| `graduate school` |
-| `post-graduate school` |
+`K-8` \| `high school` \| `freshman` \| `sophomore` \| `junior` \| `senior` \| `graduate school` \| `post-graduate school`
+
+Informational only — Learn does not use this field to drive any functionality elsewhere in the system.
 
 ---
 
