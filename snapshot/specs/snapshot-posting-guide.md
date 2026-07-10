@@ -42,6 +42,18 @@ curl -w "\n%{http_code}\n" \
 
 ---
 
+## Response Format
+
+A successful POST returns a plain-text acknowledgement containing a reference code — this is the `dataSetUid` used to check processing status:
+
+```text
+Success: Feed File Uploaded. Use the reference code afc3d6e84df84f51944a06cccee8f59a to track these records in the logs.
+```
+
+Capture this reference code from the response body. A 2xx/success response here means the file was *accepted for processing* — Learn processes data sets asynchronously, so it does not mean every record has been applied yet. Use the `dataSetUid` with the [Checking Processing Status](#checking-processing-status) endpoint below to confirm completion.
+
+---
+
 ## Pre-Flight Checklist
 
 Run through this before firing any request that isn't a `store` against a test environment:
@@ -52,8 +64,9 @@ Run through this before firing any request that isn't a `store` against a test e
 4. **Validate the file before sending.** Header row present, pipe-delimited, UTF-8, required columns per the relevant object spec. Sending a malformed file to `refresh` is more costly than to `store` since it defines "everything that should still exist."
 5. **Dry-run on Test/Stage first** for anything other than a small `store` batch, if a non-production Learn instance is available to you.
 6. **Check the response code and body**, not just "the command exited." A 2xx response acknowledges receipt — it does not by itself guarantee every record processed without error.
-7. **Follow up on processing status.** Learn processes submitted data sets asynchronously; use the status endpoint below to confirm the batch actually completed and to check for per-record errors, rather than assuming success from the POST response alone.
-8. **Log what you did** (host, object, operation, filename, timestamp, initiator) somewhere durable for audit purposes — but never log the credentials themselves.
+7. **Follow up on processing status.** Learn processes submitted data sets asynchronously; capture the `dataSetUid` from the response and poll the status endpoint below to confirm the batch actually completed and to check for per-record errors, rather than assuming success from the POST response alone.
+8. **Budget more time for `refresh`/`refreshlegacy` than `store`.** Complete Refresh operations process the full managed set and can take noticeably longer than a `store` of the same file size — this matters when scheduling recurring jobs (see [Automating Requests](#automating-requests)) so a slow refresh doesn't overlap the next scheduled run.
+9. **Log what you did** (host, object, operation, filename, timestamp, initiator) somewhere durable for audit purposes — but never log the credentials themselves.
 
 ---
 
@@ -63,7 +76,24 @@ Run through this before firing any request that isn't a `store` against a test e
 GET https://{learn-host}/webapps/bb-data-integration-flatfile-{building-block-id}/endpoint/dataSetStatus/{dataSetUid}
 ```
 
-Use this to confirm a previously submitted data set finished processing and to check for per-record errors. Consult your Learn instance's response to a submission for how `{dataSetUid}` is surfaced — this varies by version/configuration, so verify it against your own environment rather than assuming a specific response shape.
+Pass the `dataSetUid` from the POST response (see [Response Format](#response-format) above). This may be called well after the original POST completes — processing is asynchronous. Returns an XML block:
+
+```xml
+<dataSetStatus>
+    <completedCount>5</completedCount>
+    <dataIntegrationId type="blackboard.platform.dataintegration.DataIntegration">_123_1</dataIntegrationId>
+    <dataSetUid>afc3d6e84df84f51944a06cccee8f59a</dataSetUid>
+    <errorCount>0</errorCount>
+    <lastEntryDate>2013-03-20T10:45:48-05:00</lastEntryDate>
+    <queuedCount>0</queuedCount>
+    <startDate>2013-03-20T10:45:48-05:00</startDate>
+    <warningCount>0</warningCount>
+</dataSetStatus>
+```
+
+`errorCount` and `warningCount` above zero mean some records did not process cleanly even though the original POST returned success — check the integration logs for the specifics (see note below on self-hosted vs. managed hosting).
+
+> **Self-hosted vs. managed hosting:** direct, scripted access to the underlying integration log messages (beyond the counts above) is only available on self-hosted Learn deployments. On managed/SaaS hosting, use the counts from `dataSetStatus` to detect a problem, then check the logs through the Administrator Panel UI rather than expecting a scripted log pull to work.
 
 ---
 
@@ -120,7 +150,21 @@ See [Course / Organization](snapshot-course.md) for the required field layout.
 
 ---
 
+## Automating Requests
+
+For a recurring feed (e.g. a nightly SIS export), don't just cron a raw `curl` call — Blackboard's own [Snapshot Flat File Automation](https://help.anthology.com/blackboard/administrator/en/integrations/student-information-system--sis-/snapshot-flat-file/snapshot-flat-file-automation.html) guide documents a proven two-script pattern worth following:
+
+- **A "detect and dispatch" script** (their reference calls it `sis_snpshtFF_auto.sh`) watches a drop directory, inspects each file's header row to determine its object type, and groups files into the correct processing order — **users, then courses, then memberships** — since later objects depend on earlier ones existing.
+- **A "post one file" script** (`sis_snpshtFF_manual.sh`) does the actual POST for a single file, captures the `dataSetUid`, polls `dataSetStatus` until processing finishes, and emails a status report — this is also usable standalone from the command line for a manual/one-off submission.
+- The dispatch script archives each source file (with a processing timestamp appended to the filename) once its manual script confirms completion, then moves to the next file, and sends a final summary email after the whole batch.
+- **Schedule `store` and `refresh`/`refreshlegacy` separately.** Because refresh operations can run longer than store operations on the same data, use separate cron entries (and separate drop directories, if your dispatch script is directory-per-operation) so a slow refresh doesn't collide with the next scheduled store.
+
+This repo doesn't vendor a copy of Blackboard's reference `sis_snpshtFF_*` scripts — see the linked guide for the downloadable archive and full script comments. Treat the above as the shape to replicate; the actual object-processing order and per-object payloads should still come from this repo's [object specs](README.md).
+
+---
+
 ## Notes
 
 - This guide covers the request mechanics only. Object-specific fields, required columns, and value formats live in each object's spec page linked from [`specs/README.md`](README.md).
+- For the automation/monitoring pattern (cron scheduling, dispatch-and-post script split, status-email reporting), see Blackboard's [Snapshot Flat File Automation](https://help.anthology.com/blackboard/administrator/en/integrations/student-information-system--sis-/snapshot-flat-file/snapshot-flat-file-automation.html) guide, which this section summarizes.
 - If your endpoint or Learn version behaves differently from what's described here (response format, status codes, auth scheme), trust your own instance's observed behavior over this document and update it accordingly.
