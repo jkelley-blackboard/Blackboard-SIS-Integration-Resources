@@ -150,14 +150,14 @@ See [Course / Organization](../specs/snapshot-course.md) for the required field 
 
 ## Automating Requests
 
-For a recurring feed (e.g. a nightly SIS export), don't just cron a raw `curl` call — Blackboard's own [Snapshot Flat File Automation](https://help.anthology.com/blackboard/administrator/en/integrations/student-information-system--sis-/snapshot-flat-file/snapshot-flat-file-automation.html) guide documents a proven two-script pattern worth following:
+For a recurring feed (e.g. a nightly SIS export), don't just cron a raw `curl` call — the pattern below (adapted from Blackboard's own [Snapshot Flat File Automation](https://help.anthology.com/blackboard/administrator/en/integrations/student-information-system--sis-/snapshot-flat-file/snapshot-flat-file-automation.html) guide) is worth replicating:
 
-- **A "detect and dispatch" script** (their reference calls it `sis_snpshtFF_auto.sh`) watches a drop directory, inspects each file's header row to determine its object type, and groups files into the correct processing order — **users, then courses, then memberships** — since later objects depend on earlier ones existing.
-- **A "post one file" script** (`sis_snpshtFF_manual.sh`) does the actual POST for a single file, captures the `dataSetUid`, polls `dataSetStatus` until processing finishes, and emails a status report — this is also usable standalone from the command line for a manual/one-off submission.
-- The dispatch script archives each source file (with a processing timestamp appended to the filename) once its manual script confirms completion, then moves to the next file, and sends a final summary email after the whole batch.
-- **Schedule `store` and `refresh` separately.** Because refresh operations can run longer than store operations on the same data, use separate cron entries (and separate drop directories, if your dispatch script is directory-per-operation) so a slow refresh doesn't collide with the next scheduled store.
+- **A dispatch step** watches a drop directory, inspects each file's header row to determine its object type, and groups files into the correct processing order — **users, then courses, then memberships** — since later objects depend on earlier ones existing.
+- **A per-file posting step** does the actual POST for a single file, captures the `dataSetUid`, polls `dataSetStatus` until processing finishes, and reports success/failure — this should also be usable standalone for a manual/one-off submission.
+- Once a file's posting step confirms completion, archive the source file (e.g. with a processing timestamp appended to the filename) before moving to the next file, and send a summary report after the whole batch.
+- **Schedule `store` and `refresh` separately.** Because refresh operations can run longer than store operations on the same data, use separate cron entries (and separate drop directories, if dispatch is directory-per-operation) so a slow refresh doesn't collide with the next scheduled store.
 
-This repo doesn't vendor a copy of Blackboard's reference `sis_snpshtFF_*` scripts — see the linked guide for the downloadable archive and full script comments. Treat the above as the shape to replicate; the actual object-processing order and per-object payloads should still come from this repo's [object specs](../specs/README.md).
+This repo doesn't vendor any reference implementation of this pattern — treat the above as the shape to replicate; the actual object-processing order and per-object payloads should still come from this repo's [object specs](../specs/README.md).
 
 ---
 
