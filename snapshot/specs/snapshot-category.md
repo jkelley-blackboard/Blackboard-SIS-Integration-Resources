@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Category"
 id: snapshot-flatfile-category
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-06-25"
+edited: "2026-07-10"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -41,13 +41,13 @@ The Category object creates and manages catalog categories for Courses and Organ
 | Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Title | `title` | Yes | No | Max 255, multi-byte | The name of the category as displayed to users in the UI. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
-| Description | `description` | No | No | — | Category description. |
 | Front Page | `frontpage_ind` | No | No | `Y` \| `N` | Determines whether the category is displayed on the front page of the catalog. |
+| Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
+| Description | `description` | No | No | — | Category description. |
 | Is Restricted | `restrict_ind` | No | No | `Y` \| `N` | Restricts the Course or Organization to members only. |
 | Parent Batch Uid | `parent_category_key` | No | No | Max 64 | The `external_category_key` of the parent category. Makes this category a child of the specified parent. |
 | Replacement Batch Uid | `new_external_category_key` | No | Yes | Max 64, multi-byte | Use only when the category's EXTERNAL KEY must change. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.CourseCatReplacementDataSourceBatchUid` |
-| Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
 
 ---
 

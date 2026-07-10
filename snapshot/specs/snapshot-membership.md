@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Course / Organization Membership"
 id: snapshot-flatfile-membership
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-06-25"
+edited: "2026-07-10"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -40,7 +40,9 @@ The Membership object creates and manages enrollments and staff assignments for 
 | Course / Org Batch Uid | `external_course_key` | Yes | No | Max 64, multi-byte | Use `external_organization_key` for Organizations. |
 | Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | User Batch Uid | `external_person_key` | Yes | No | Max 64, multi-byte | The `external_person_key` of the user being enrolled. |
+| Role | `role` | No | No | `Instructor` \| `teaching_assistant` \| `course_builder` \| `Grader` \| `Student` \| `guest` \| `none` | The user's role in the Course. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
+| Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
 | Cartridge Access | `hascartridgeaccess` | No | No | — | **Deprecated.** Not supported and targeted for removal. Do not use. |
 | Image URL | `Image_URL` | No | No | — | **Deprecated.** Not supported and targeted for removal. Do not use. |
 | Include In Roster | `roster_ind` | No | No | `Y` \| `N` | Flag indicating whether the user is displayed in the course roster. |
@@ -50,8 +52,6 @@ The Membership object creates and manages enrollments and staff assignments for 
 | Primary Instructor | `primary_instructor` | No | No | `Y` \| `N` | Indicates primary instructor. Member must have a course role with the 'treat as instructor' flag. A `Y` value on a non-instructor role is rejected. |
 | Receive Email | `receive_email_ind` | No | No | `Y` \| `N` | Flag whether email is enabled for this user in this course. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.MemberReplacementDataSourceBatchUid` |
-| Role | `role` | No | No | `Instructor` \| `teaching_assistant` \| `course_builder` \| `Grader` \| `Student` \| `guest` \| `none` | The user's role in the Course. |
-| Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
 | Website 1 — Description | `link_description_1` | No | No | Max 255 |  |
 | Website 1 — Name | `link_name_1` | No | No | Max 100 |  |
 | Website 1 — URL | `link_url_1` | No | No | Max 100 |  |

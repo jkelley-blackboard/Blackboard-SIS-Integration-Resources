@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Secondary Institution Role"
 id: snapshot-flatfile-secondary-institution-role
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-06-25"
+edited: "2026-07-10"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -34,10 +34,10 @@ The Secondary Institution Role object assigns additional institution roles to us
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
 | Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
-| Secondary Institution Role ID | `role_id` | Yes | No | — | The identifier for the secondary institution role for this association. |
 | User Batch Uid | `external_person_key` | Yes | No | Max 64 | The `external_person_key` (batch_uid) of the user. |
-| Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.SecondaryInstRoleReplacementDataSourceBatchUid` |
+| Secondary Institution Role ID | `role_id` | Yes | No | — | The identifier for the secondary institution role for this association. |
 | Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
+| Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.SecondaryInstRoleReplacementDataSourceBatchUid` |
 
 ---
 

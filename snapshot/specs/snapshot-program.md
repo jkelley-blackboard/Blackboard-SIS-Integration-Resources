@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Program"
 id: snapshot-flatfile-program
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-06-25"
+edited: "2026-07-10"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -39,10 +39,10 @@ The Program object creates and manages academic programs in Blackboard Learn. Pr
 | Program Name | `program_name` | Yes | No | Max 255, multi-byte | Complete title of the Program used for display. |
 | Program Type | `program_type` | Yes | No | See [Program Type Values](#program-type-values) | Indicates the degree-level classification of the Program. Maps to the underlying `course_type` column. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
+| Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
 | Description | `description` | No | No | Max 4000, multi-byte | Stored in the same underlying column as course description. |
 | Replacement Batch Uid | `new_external_program_key` | No | Yes | Max 64 | Use only when a Program's EXTERNAL KEY must change. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.ProgramReplacementDataSourceBatchUid` |
-| Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
 
 ---
 

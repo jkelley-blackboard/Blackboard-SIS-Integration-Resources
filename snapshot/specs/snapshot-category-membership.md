@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Category Membership"
 id: snapshot-flatfile-category-membership
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-06-25"
+edited: "2026-07-10"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -37,13 +37,13 @@ The Category Membership object associates Courses and Organizations with catalog
 
 | Field | Header | Required | Unique | Format / Values / Max | Comments |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| Batch Uid | `(auto-populated)` | Yes | Yes | — | Auto-populated by the system. Do not include in data feeds. |
 | Category Batch Uid | `external_category_key` | Yes | No | Max 64 | The `external_category_key` of the category to which to add the course or organization. |
 | Course / Org Batch Uid | `external_course_key` | Yes | No | Max 64 | Use `external_organization_key` for Organizations. |
 | Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
-| Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.CourseCatMemReplacementDataSourceBatchUid` |
 | Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
+| Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.CourseCatMemReplacementDataSourceBatchUid` |
+| Batch Uid | `(auto-populated)` | Yes | Yes | — | Auto-populated by the system. Do not include in data feeds. |
 
 ---
 

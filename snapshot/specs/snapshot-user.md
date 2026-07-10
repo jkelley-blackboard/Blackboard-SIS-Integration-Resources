@@ -38,7 +38,11 @@ The User object provisions and updates user accounts in Blackboard Learn. Each u
 | First Name | `firstname` | Yes | No | Max 100, multi-byte |  |
 | Last Name | `lastname` | Yes | No | Max 100, multi-byte |  |
 | Username | `user_id` | Yes | Yes | Max 50, multi-byte | The username used to log into Blackboard. Must be globally unique. |
+| Email | `email` | No | No | Max 100 | Blackboard recommends this not be null — users without an email address cannot send email. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
+| Primary Institution Role | `institution_role` | No | No | — | Determines the user's view of Portal Modules. See Manage Institution Roles in System Admin for valid values on your system. |
+| System Role | `system_role` | No | No | See [System Role Values](#system-role-values) | Defaults to `none` if not provided. |
+| Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
 | Birthdate | `birthdate` | No | No | `yyyymmdd` |  |
 | City | `city` | No | No | Max 50, multi-byte |  |
 | Company | `company` | No | No | Max 50, multi-byte |  |
@@ -46,7 +50,6 @@ The User object provisions and updates user accounts in Blackboard Learn. Each u
 | Department | `department` | No | No | Max 100, multi-byte |  |
 | Domain Name | `domain_name` | No | No | Max 255 | Must match a configured hostname. Invalid values silently ignored. Set at insert only — updates are ignored. e.g. `blackboard.college.edu` |
 | Education Level | `educ_level` | No | No | See [Education Level Values](#education-level-values) |  |
-| Email | `email` | No | No | Max 100 | Blackboard recommends this not be null — users without an email address cannot send email. |
 | Gender | `gender` | No | No | `Not Disclosed` \| `Male` \| `Female` \| `Other` |  |
 | Home Fax | `h_fax` | No | No | Max 50, multi-byte | Not present on the Create/Edit User page — unlike Work Fax, there is no Home Fax input in the GUI. |
 | Home Phone | `h_phone_1` | No | No | Max 50, multi-byte |  |
@@ -60,17 +63,14 @@ The User object provisions and updates user accounts in Blackboard Learn. Each u
 | Other Name | `othername` | No | No | Max 100 | Alternate preferred name. |
 | Password | `passwd` | No | No | Max 32, multi-byte | If not provided, Learn auto-populates a SHA-512 hash. |
 | Password Encryption Type | `pwencryptiontype` | No | No | `MD5` \| `SSHA` | No corresponding GUI field — batch-only directive telling the import how to interpret a pre-hashed `passwd` value. |
-| Primary Institution Role | `institution_role` | No | No | — | Determines the user's view of Portal Modules. See Manage Institution Roles in System Admin for valid values on your system. |
 | Pronouns | `pronouns` | No | No | Max 1000 | Multiple values accepted using comma as delimiter. |
 | Replacement Batch Uid | `new_external_person_key` | No | Yes | Max 64, multi-byte | Use only when a user's `external_person_key` must change. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.UserReplacementDataSourceBatchUid` |
-| Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
 | State / Province | `state` | No | No | Max 50, multi-byte |  |
 | Street 1 | `street_1` | No | No | Max 100, multi-byte |  |
 | Street 2 | `street_2` | No | No | Max 100, multi-byte |  |
 | Student ID | `student_id` | No | No | Max 50, multi-byte | Display only — not used for lookup or matching. |
 | Suffix | `suffix` | No | No | Max 100, multi-byte |  |
-| System Role | `system_role` | No | No | See [System Role Values](#system-role-values) | Defaults to `none` if not provided. |
 | Title | `title` | No | No | Max 100, multi-byte |  |
 | Website | `webpage` | No | No | Max 100 | URL of the user's personal web page. |
 | Work Fax | `b_fax` | No | No | Max 50, multi-byte |  |

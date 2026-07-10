@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Observer Association"
 id: snapshot-flatfile-observer-association
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-06-25"
+edited: "2026-07-10"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -36,8 +36,8 @@ The Observer Association object links Observer-role users to Student-role users,
 | Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Observed Student | `external_user_key` | Yes | No | Max 64, multi-byte | The `external_person_key` of the student being observed. Must have the Institution Role of Student. |
 | Observer | `external_observer_key` | Yes | No | Max 64, multi-byte | The `external_person_key` of the observer. Must have the system role of Observer. |
-| Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.AssociateObserverReplacementDataSourceBatchUid` |
 | Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
+| Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.AssociateObserverReplacementDataSourceBatchUid` |
 
 ---
 

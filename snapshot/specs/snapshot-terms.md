@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Terms"
 id: snapshot-flatfile-terms
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-06-25"
+edited: "2026-07-10"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -37,16 +37,16 @@ The Term object creates and manages academic terms in Blackboard Learn. Terms co
 | Data Source Key | `data_source_key` | Yes | No | Max 256, multi-byte | May be supplied by the integration configuration rather than the file. |
 | Name | `name` | Yes | No | Max 333 | Name of the term as displayed to users. |
 | Available | `available_ind` | No | No | `Y` \| `N` | Establishes availability within Blackboard Learn. |
+| Duration | `duration` | No | No | `Continuous` \| `Range` \| `Fixed` | `Continuous`: always accessible. `Range`: between `start_date` and `end_date`. `Fixed`: set number of `days_of_use`. |
+| Start Date | `start_date` | No | No | `yyyymmdd` | The date the term begins to be available. |
+| End Date | `end_date` | No | No | `yyyymmdd` | The date the term stops being available. |
+| Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
 | Days of Use | `days_of_use` | No | No | Numeric | Number of days students may access courses after enrollment. Used when `duration` is `Fixed`. |
 | Description | `description` | No | No | No limit | Description of the Term. |
-| Duration | `duration` | No | No | `Continuous` \| `Range` \| `Fixed` | `Continuous`: always accessible. `Range`: between `start_date` and `end_date`. `Fixed`: set number of `days_of_use`. |
-| End Date | `end_date` | No | No | `yyyymmdd` | The date the term stops being available. |
-| Start Date | `start_date` | No | No | `yyyymmdd` | The date the term begins to be available. |
-| Term Type | `term_type` | No | No | `a` \| `s` \| `t` \| `q` \| `i` \| `m` \| `u` | Classifies the term: Annual, Semester, Trimester, Quarter, Intersession, Module, Unspecified. |
 | Parent Term Batch Uid | `external_parent_term_key` | No | No | Max 256, multi-byte | `external_term_key` of this term's parent (e.g. Annual → Semester/Trimester/Quarter). Set to `NONE` to remove an existing parent association. |
 | Replacement Batch Uid | `new_external_term_key` | No | Yes | Max 256, multi-byte | Use only when a term's EXTERNAL KEY must change. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.TermReplacementDataSourceBatchUid` |
-| Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
+| Term Type | `term_type` | No | No | `a` \| `s` \| `t` \| `q` \| `i` \| `m` \| `u` | Classifies the term: Annual, Semester, Trimester, Quarter, Intersession, Module, Unspecified. |
 
 ---
 
