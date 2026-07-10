@@ -13,7 +13,7 @@ For an introduction to the integration type, file format, and a full index of su
 ## Contents
 
 ### [`specs/`](specs/)
-Field-level specifications for all Snapshot Flat File object types, in Markdown format. Also published via [GitHub Pages](https://jkelley-blackboard.github.io/Blackboard-SIS-Integration-Resources/).
+Field-level specifications for all Snapshot Flat File object types, in Markdown format.
 
 ### [`operations/`](operations/)
 Guidance for running the integration day-to-day, starting with [Posting Requests](operations/snapshot-posting-guide.md) — how to construct and send the HTTP requests, check processing status, and automate recurring feeds.

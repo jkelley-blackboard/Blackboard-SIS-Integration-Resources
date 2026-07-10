@@ -24,7 +24,8 @@ Resources for Snapshot Flat File integrations, including field-level specificati
 
 | Path | Contents |
 |---|---|
-| [`snapshot/specs/`](snapshot/specs/) | Field-level specs for all Snapshot object types (Markdown) — also published via [GitHub Pages](https://jkelley-blackboard.github.io/Blackboard-SIS-Integration-Resources/) |
+| [`snapshot/specs/`](snapshot/specs/) | Field-level specs for all Snapshot object types (Markdown) |
+| [`snapshot/operations/`](snapshot/operations/) | Guidance for running the integration day-to-day — constructing and sending requests, checking processing status, and automating recurring feeds |
 
 ---
 
