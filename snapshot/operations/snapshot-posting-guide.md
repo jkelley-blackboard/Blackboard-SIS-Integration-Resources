@@ -35,7 +35,7 @@ curl -w "\n%{http_code}\n" \
   "https://${LEARN_HOST}/webapps/bb-data-integration-flatfile-${BB_ID}/endpoint/${OBJECT}/${OPERATION}"
 ```
 
-- `{object}` — endpoint slug from the [Overview](snapshot-flat-file-overview.md#complete-endpoint-reference) table, e.g. `person`, `course`, `membership`.
+- `{object}` — endpoint slug from the [Overview](../specs/snapshot-flat-file-overview.md#complete-endpoint-reference) table, e.g. `person`, `course`, `membership`.
 - `{operation}` — `store`, `refresh`, or `delete`.
 - `-k` (insecure/skip TLS verification) should only ever be used against a known test/sandbox host with a self-signed cert — never against production.
 - `-w "%{http_code}"` surfaces the HTTP status code so a failed request isn't mistaken for success.
@@ -59,7 +59,7 @@ Capture this reference code from the response body. A 2xx/success response here 
 Run through this before firing any request that isn't a `store` against a test environment:
 
 1. **Confirm the target host.** Double-check `{learn-host}` resolves to the environment you intend (Test/Stage vs. Production). It's easy to fire a script at the wrong environment.
-2. **Confirm the operation.** `store` is additive/idempotent (smart insert-or-update). `refresh` will disable or purge any record *not* present in the submitted file across the whole integration. `delete` acts only on records listed in the file. See the [Delete Behaviors](snapshot-flat-file-overview.md#delete-behaviors) table — some objects are purged, not disabled, and purge is not recoverable.
+2. **Confirm the operation.** `store` is additive/idempotent (smart insert-or-update). `refresh` will disable or purge any record *not* present in the submitted file across the whole integration. `delete` acts only on records listed in the file. See the [Delete Behaviors](../specs/snapshot-flat-file-overview.md#delete-behaviors) table — some objects are purged, not disabled, and purge is not recoverable.
 3. **Confirm the Data Source Key.** It must already exist in **Administrator Panel > Data Integration > Data Source Keys**, and must match what the file (or the integration config) expects.
 4. **Validate the file before sending.** Header row present, pipe-delimited, UTF-8, required columns per the relevant object spec. Sending a malformed file to `refresh` is more costly than to `store` since it defines "everything that should still exist."
 5. **Dry-run on Test/Stage first** for anything other than a small `store` batch, if a non-production Learn instance is available to you.
@@ -125,7 +125,7 @@ curl -w "\n%{http_code}\n" \
   "https://${LEARN_HOST}/webapps/bb-data-integration-flatfile-${BB_ID}/endpoint/person/store"
 ```
 
-`users_batch.txt` follows the field layout in [User](snapshot-user.md), e.g.:
+`users_batch.txt` follows the field layout in [User](../specs/snapshot-user.md), e.g.:
 
 ```text
 external_person_key|data_source_key|firstname|lastname|user_id|email|available_ind|row_status
@@ -144,7 +144,7 @@ curl -w "\n%{http_code}\n" \
   "https://${LEARN_HOST}/webapps/bb-data-integration-flatfile-${BB_ID}/endpoint/course/refresh"
 ```
 
-See [Course / Organization](snapshot-course.md) for the required field layout.
+See [Course / Organization](../specs/snapshot-course.md) for the required field layout.
 
 ---
 
@@ -157,12 +157,12 @@ For a recurring feed (e.g. a nightly SIS export), don't just cron a raw `curl` c
 - The dispatch script archives each source file (with a processing timestamp appended to the filename) once its manual script confirms completion, then moves to the next file, and sends a final summary email after the whole batch.
 - **Schedule `store` and `refresh` separately.** Because refresh operations can run longer than store operations on the same data, use separate cron entries (and separate drop directories, if your dispatch script is directory-per-operation) so a slow refresh doesn't collide with the next scheduled store.
 
-This repo doesn't vendor a copy of Blackboard's reference `sis_snpshtFF_*` scripts — see the linked guide for the downloadable archive and full script comments. Treat the above as the shape to replicate; the actual object-processing order and per-object payloads should still come from this repo's [object specs](README.md).
+This repo doesn't vendor a copy of Blackboard's reference `sis_snpshtFF_*` scripts — see the linked guide for the downloadable archive and full script comments. Treat the above as the shape to replicate; the actual object-processing order and per-object payloads should still come from this repo's [object specs](../specs/README.md).
 
 ---
 
 ## Notes
 
-- This guide covers the request mechanics only. Object-specific fields, required columns, and value formats live in each object's spec page linked from [`specs/README.md`](README.md).
+- This guide covers the request mechanics only. Object-specific fields, required columns, and value formats live in each object's spec page linked from [`specs/README.md`](../specs/README.md).
 - For the automation/monitoring pattern (cron scheduling, dispatch-and-post script split, status-email reporting), see Blackboard's [Snapshot Flat File Automation](https://help.anthology.com/blackboard/administrator/en/integrations/student-information-system--sis-/snapshot-flat-file/snapshot-flat-file-automation.html) guide, which this section summarizes.
 - If your endpoint or Learn version behaves differently from what's described here (response format, status codes, auth scheme), trust your own instance's observed behavior over this document and update it accordingly.

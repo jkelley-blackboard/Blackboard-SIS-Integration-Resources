@@ -6,16 +6,11 @@ Start here for an introduction to the integration type, file format, and a full 
 
 **[Snapshot Flat File — Overview](snapshot-flat-file-overview.md)**
 
-Ready to actually send a request? See:
-
-**[Posting Requests](snapshot-posting-guide.md)**
+Ready to actually send a request? See [Posting Requests](../operations/snapshot-posting-guide.md) in [`operations/`](../operations/).
 
 ---
 
 ## Contents
-
-### Operations
-- [Posting Requests](snapshot-posting-guide.md)
 
 ### Core Objects
 - [User](snapshot-user.md)
