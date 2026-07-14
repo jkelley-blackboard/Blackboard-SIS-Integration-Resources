@@ -95,16 +95,7 @@ Pass the `dataSetUid` from the POST response (see [Response Format](#response-fo
 
 ---
 
-## Troubleshooting with the Reference Code
-
-The `dataSetUid` is the only link between a request you sent and what Learn actually did with it — the POST response tells you the file was accepted, not that it succeeded. Treat the reference code as something to record, not just something to glance at.
-
-- **Record it immediately, next to the request that produced it.** At minimum: timestamp, host, object, operation, filename, and the `dataSetUid` — the same fields called out in [Pre-Flight Checklist](#pre-flight-checklist) item 9, plus the reference code itself. A durable log (file, database row, ticket comment) beats terminal scrollback, which won't survive to when you actually need to look the batch up.
-- **`dataSetStatus` is a REST endpoint, not a UI-only report — use it in your integration, not just a browser.** Because it's a plain `GET` that returns structured XML, your posting script (or the automation pipeline described in [Automating Requests](#automating-requests)) can poll it directly and act on the result — retry, alert, or halt a scheduled job — instead of requiring a human to check the Administrator Panel after every run.
-- **Poll until the counts stop changing, not just once.** `queuedCount` draining to zero indicates processing has finished; check `errorCount` and `warningCount` at that point, not immediately after the POST.
-- **When `errorCount` or `warningCount` is above zero**, the `dataSetStatus` response tells you *that* something went wrong but not *what* — cross-reference the `dataSetUid` against the integration logs in the Administrator Panel to see the per-record detail.
-- **When opening a support case with Blackboard**, lead with the `dataSetUid`, the host, and the approximate submission time — it's the fastest way for support to locate the batch in server-side logs without you having to reconstruct the request.
-- **Keep the reference code with the outcome, not just the request.** A log entry that only records "sent file X at time Y" is half the story — append the final `dataSetStatus` result (completed/error/warning counts) once polling confirms the batch is done, so the record answers "did it work?" on its own without re-polling later.
+For best practices on recording the reference code and using `dataSetStatus` as part of your own integration — not just a one-off manual check — see [Working with the Reference Code and Status Endpoint](reference-code-best-practices.md).
 
 ---
 
