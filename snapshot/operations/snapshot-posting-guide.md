@@ -11,7 +11,7 @@ author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 
 Operational guidance for constructing and executing the HTTP requests that submit Snapshot Flat File data to Blackboard Learn. This complements the field-level object specs — start there for file format and required fields per object; use this doc when you're ready to actually send a request.
 
-> As with the rest of this repository, this content is provided for reference and educational purposes only, without support, maintenance, or warranty of any kind. Always confirm current behavior against your own Learn instance and Blackboard's official documentation before relying on it.
+> As with the rest of this repository, this content is provided as-is, without warranty or support of any kind — Blackboard retains all rights. Always confirm current behavior against your own Learn instance and Blackboard's official documentation before relying on it.
 
 ---
 
