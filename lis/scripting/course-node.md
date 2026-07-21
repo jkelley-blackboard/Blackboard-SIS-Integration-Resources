@@ -9,7 +9,7 @@ This guide describes how to map **Ellucian ILP (IMS LIS)** course section data t
 
 We assume:
 
-- Your Blackboard **Institutional Hierarchy** already exists.
+- Your Blackboard **Institutional Hierarchy** already exists — typically created and maintained via a [Snapshot Hierarchy Node](../../snapshot/specs/snapshot-hierarchy-node.md) feed extracted from Banner, populated with these same Name/ID/Description values.
 - The **lowest-level nodes** represent academic **departments**.
 - Node values originate from your SIS and match ILP fields (e.g.,  
   **Name:** `PSY` • **ID:** `0256` • **Description:** "Psychology Department").
