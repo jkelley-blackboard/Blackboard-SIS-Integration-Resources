@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Subject"
 id: snapshot-flatfile-subject
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-07-10"
+edited: "2026-07-21"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -42,7 +42,7 @@ The Subject object creates and manages curricular subjects in Blackboard Learn. 
 | Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
 | Description | `description` | No | No | No effective limit, multi-byte | Stored in the same underlying column as course description. |
 | Replacement Batch Uid | `new_external_subject_key` | No | Yes | Max 64, multi-byte | Use only when a Subject's EXTERNAL KEY must change. |
-| Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.SubjectReplacementDataSourceBatchUid` |
+| Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | Field Mapping label: "Subject Replacement Data Source Batch Uid". |
 
 ---
 
