@@ -3,7 +3,7 @@ title: "Snapshot Flat File — Terms"
 id: snapshot-flatfile-terms
 categories: SIS, Snapshot Flat File
 published: "2026-04-22"
-edited: "2026-07-10"
+edited: "2026-07-21"
 author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 ---
 
@@ -45,7 +45,7 @@ The Term object creates and manages academic terms in Blackboard Learn. Terms co
 | Description | `description` | No | No | No limit | Description of the Term. |
 | Parent Term Batch Uid | `external_parent_term_key` | No | No | Max 256, multi-byte | `external_term_key` of this term's parent (e.g. Annual → Semester/Trimester/Quarter). Set to `NONE` to remove an existing parent association. |
 | Replacement Batch Uid | `new_external_term_key` | No | Yes | Max 256, multi-byte | Use only when a term's EXTERNAL KEY must change. |
-| Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatfile.TermReplacementDataSourceBatchUid` |
+| Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | UI mapping: `script.flatFileTermReplacementDataSourceBatchUid` |
 | Term Type | `term_type` | No | No | `a` \| `s` \| `t` \| `q` \| `i` \| `m` \| `u` | Classifies the term: Annual, Semester, Trimester, Quarter, Intersession, Module, Unspecified. |
 
 ---
