@@ -113,7 +113,7 @@ If you adapt one of these scripts, pick one implementation and confirm what your
 - **Confirm your node external keys** match exactly what this script returns — `STUDENT`, `FACULTY`, `STAFF`, `PROSPECTIVE_STUDENT` are illustrative, not fixed Blackboard constants.
 - **Decide what should happen for an unmapped role** and make both implementations agree, rather than relying on whichever behavior happens to fall out of the script’s structure.
 - **Log both the raw role value and the resolved node** — as both reference implementations do — so an unmapped-role or missing-role case is diagnosable from the integration logs alone.
-- **If your institution places users by campus, department, major, or another non-role criterion**, the same `Added Node Batch Uid` field and array-return mechanics described above should still apply — only the mapping logic inside the script would change. No such reference script exists in this repo yet.
+- **If your institution places users by campus, department, major, or another non-role criterion**, the same `Added Node Batch Uid` field and array-return mechanics described above should still apply — only the mapping logic inside the script would change. No such reference script exists in this repo yet. The most likely source for values like these is the LIS **Extensions** mechanism (`data.getPerson().getExtensions().get('fieldName')` — see [data-models/README.md](../data-models/README.md#1-person)), *if* Ellucian's Banner ILP connector is configured to push them as custom extension fields. That's not guaranteed the way a standard field like `institutionRole` is — confirm against Ellucian's ILP configuration or a live test payload before building a mapping script around it.
 
 ---
 
