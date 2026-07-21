@@ -17,6 +17,9 @@ Overview of the custom field mapping scripting environment: JavaScript syntax, t
 ### `course-node.md`
 Step-by-step guide for mapping Ellucian ILP course section data to Blackboard's Institutional Hierarchy using the LIS feed. Covers how to extract department metadata from the `<org>` block in the LIS XML, construct the `primary_external_node_key` and `external_association_key` field mapping scripts, handle secondary node associations, and recommended strategy for node placement via LIS vs. Snapshot.
 
+### `user-node.md`
+Step-by-step guide for mapping a person's primary institution role to an Institutional Hierarchy node placement using the LIS feed's `Added Node Batch Uid` field. Covers the role-to-node mapping table, the array-return requirement, and a behavioral difference between the two reference script implementations for unmapped role values.
+
 ---
 
 ## Scripts
