@@ -45,11 +45,11 @@ The Membership object creates and manages enrollments and staff assignments for 
 | Availability Override Date | `bypass_date` | No | No | Date, exact format not yet confirmed | Field Mapping label: "Availability Override Date". Maps to SIS field `flatFileMemberBypassDate`. Purpose/behavior not yet confirmed against a live Create/Edit page. |
 | Row Status | `row_status` | No | No | `enabled` \| `disabled` \| `deleted` | `enabled`: normal access. `disabled`: visible but not editable. `deleted`: scheduled for removal. |
 | Cartridge Access | `cartridge_ind` | No | No | — | **Deprecated.** Header exists for legacy file compatibility but has no corresponding Field Mapping row — cannot be configured in the GUI. Do not use. |
-| Image URL | `photo_link` | No | No | — | Maps to SIS field `flatFileMemberPhotoLink` ("Membership Image URL") — actively field-mappable, not deprecated. |
+| Image URL | `photo_link` | No | No | — | **Deprecated.** Not displayed or used anywhere in the application, despite still being field-mappable in the GUI (maps to SIS field `flatFileMemberPhotoLink`). |
 | Include In Roster | `roster_ind` | No | No | `Y` \| `N` | Flag indicating whether the user is displayed in the course roster. |
-| Introduction | `intro` | No | No | Max 4000, multi-byte | Introduction information for the User Home Page within the Course. |
-| Notes | `note` | No | No | No limit, multi-byte | Information pertinent to this user that may impact course participation. |
-| Personal Information | `pinfo` | No | No | No limit, multi-byte | Personal information for the User Home Page. |
+| Introduction | `intro` | No | No | Max 4000, multi-byte | **Deprecated.** Not displayed or used anywhere in the application. |
+| Notes | `note` | No | No | No limit, multi-byte | **Deprecated.** Not displayed or used anywhere in the application. |
+| Personal Information | `pinfo` | No | No | No limit, multi-byte | **Deprecated.** Not displayed or used anywhere in the application. |
 | Primary Instructor | `primary_instructor` | No | No | `Y` \| `N` | Indicates primary instructor. Member must have a course role with the 'treat as instructor' flag. A `Y` value on a non-instructor role is rejected. |
 | Receive Email | `receive_email_ind` | No | No | `Y` \| `N` | Flag whether email is enabled for this user in this course. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | Field Mapping label: "Membership Replacement Data Source Batch Uid" (internal name `flatFileMemberReplacementDataSourceBatchUid`). |
@@ -80,6 +80,5 @@ MATH101-F25|SIS-IMPORT-2025|STU-100042|Student|Y|enabled
 
 - **Course and Organization memberships use the same fields** but different endpoints and key headers (`external_course_key` vs `external_organization_key`).
 - **`primary_instructor`** is only valid for course roles that have the 'treat as instructor' flag enabled. A `Y` value on any other role type is silently rejected.
-- **`cartridge_ind`** is the only confirmed-deprecated field — remove it from any existing feeds. `photo_link` (Image URL) is active, not deprecated, despite once being listed that way.
-- **Website Name and URL fields (`link_name_1/2/3`, `link_url_1/2/3`) are deprecated** — not displayed or used anywhere in the application. The Description fields (`link_desc_1/2/3`) are not known to be deprecated.
+- **Several fields are deprecated — non-functional and not displayed anywhere in the application — despite still being configurable in Field Mapping:** `cartridge_ind` (Cartridge Access), `photo_link` (Image URL), `intro` (Introduction), `note` (Notes), `pinfo` (Personal Information), and the Website Name/URL fields (`link_name_1/2/3`, `link_url_1/2/3`). Remove these from any existing feeds. The Website Description fields (`link_desc_1/2/3`) are not known to be deprecated.
 - **The Field Mapping page also lists "Batch Uid," "Replacement Batch Uid," "Course ID," and "Move Cross-listed Enrollment"** as Learn Enrollments fields — "Batch Uid" shows its source as "Membership External Key." This is misleading: Blackboard Learn has no actual membership batch UID / external key concept, and none of these four fields appear anywhere in the Header Override list, meaning none of them can be populated from the flat file at all. Treat "Membership External Key" as an internal Field Mapping page label, not a real header or a value you need to supply.
