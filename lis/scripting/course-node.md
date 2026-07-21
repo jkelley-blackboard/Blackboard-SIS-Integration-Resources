@@ -90,7 +90,7 @@ data.courseSection.org.orgUnit
 ## **2.2 `external_association_key`**
 
 This key represents the **course ↔ node relationship** and must be **globally unique**.
-The recomended format is: 
+The recommended format is: 
 ```
 <courseSourcedId>=<deptId>
 ```
@@ -111,7 +111,7 @@ Example:
     deptId   = String(deptId).trim();
     courseId = String(courseId).trim();
 
-    // New required order: courseSourcedId=deptId
+    // Default/recommended order: courseSourcedId=deptId
     return courseId && deptId ? (courseId + "=" + deptId) : "";
 })();
 ```
