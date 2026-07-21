@@ -53,13 +53,13 @@ The Membership object creates and manages enrollments and staff assignments for 
 | Primary Instructor | `primary_instructor` | No | No | `Y` \| `N` | Indicates primary instructor. Member must have a course role with the 'treat as instructor' flag. A `Y` value on a non-instructor role is rejected. |
 | Receive Email | `receive_email_ind` | No | No | `Y` \| `N` | Flag whether email is enabled for this user in this course. |
 | Replacement Data Source Batch Uid | `new_data_source_key` | No | No | — | Field Mapping label: "Membership Replacement Data Source Batch Uid" (internal name `flatFileMemberReplacementDataSourceBatchUid`). |
-| Website 1 — Description | `link_desc_1` | No | No | Max 255 |  |
+| Website 1 — Description | `link_desc_1` | No | No | Max 255 | **Deprecated.** Not displayed or used anywhere in the application. |
 | Website 1 — Name | `link_name_1` | No | No | Max 100 | **Deprecated.** Not displayed or used anywhere in the application. |
 | Website 1 — URL | `link_url_1` | No | No | Max 100 | **Deprecated.** Not displayed or used anywhere in the application. |
-| Website 2 — Description | `link_desc_2` | No | No | Max 255 |  |
+| Website 2 — Description | `link_desc_2` | No | No | Max 255 | **Deprecated.** Not displayed or used anywhere in the application. |
 | Website 2 — Name | `link_name_2` | No | No | Max 100 | **Deprecated.** Not displayed or used anywhere in the application. |
 | Website 2 — URL | `link_url_2` | No | No | Max 100 | **Deprecated.** Not displayed or used anywhere in the application. |
-| Website 3 — Description | `link_desc_3` | No | No | Max 255 |  |
+| Website 3 — Description | `link_desc_3` | No | No | Max 255 | **Deprecated.** Not displayed or used anywhere in the application. |
 | Website 3 — Name | `link_name_3` | No | No | Max 100 | **Deprecated.** Not displayed or used anywhere in the application. |
 | Website 3 — URL | `link_url_3` | No | No | Max 100 | **Deprecated.** Not displayed or used anywhere in the application. |
 
@@ -80,5 +80,5 @@ MATH101-F25|SIS-IMPORT-2025|STU-100042|Student|Y|enabled
 
 - **Course and Organization memberships use the same fields** but different endpoints and key headers (`external_course_key` vs `external_organization_key`).
 - **`primary_instructor`** is only valid for course roles that have the 'treat as instructor' flag enabled. A `Y` value on any other role type is silently rejected.
-- **Several fields are deprecated — non-functional and not displayed anywhere in the application — despite still being configurable in Field Mapping:** `cartridge_ind` (Cartridge Access), `photo_link` (Image URL), `intro` (Introduction), `note` (Notes), `pinfo` (Personal Information), and the Website Name/URL fields (`link_name_1/2/3`, `link_url_1/2/3`). Remove these from any existing feeds. The Website Description fields (`link_desc_1/2/3`) are not known to be deprecated.
+- **Several fields are deprecated — non-functional and not displayed anywhere in the application — despite still being configurable in Field Mapping:** `cartridge_ind` (Cartridge Access), `photo_link` (Image URL), `intro` (Introduction), `note` (Notes), `pinfo` (Personal Information), and all Website fields (`link_name_1/2/3`, `link_url_1/2/3`, `link_desc_1/2/3`). Remove these from any existing feeds.
 - **The Field Mapping page also lists "Batch Uid," "Replacement Batch Uid," "Course ID," and "Move Cross-listed Enrollment"** as Learn Enrollments fields — "Batch Uid" shows its source as "Membership External Key." This is misleading: Blackboard Learn has no actual membership batch UID / external key concept, and none of these four fields appear anywhere in the Header Override list, meaning none of them can be populated from the flat file at all. Treat "Membership External Key" as an internal Field Mapping page label, not a real header or a value you need to supply.
