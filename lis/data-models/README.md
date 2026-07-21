@@ -17,7 +17,9 @@ This document provides examples of how to access data fields in Blackboard SIS c
 | Email Address | `data.getPerson().getEmail()` |
 | Primary Institution Role | `data.getPerson().getRoles().get(0).getPrimaryInstitutionRole().getValue()` |
 | Secondary Institution Roles | `data.getPerson().getRoles().getSecondaryInstitutionRoles()` **(TBD)** |
-| Extensions (pronouns, etc.) | `data.getPerson().getExtensions().get('fieldName')` **(TBD)** |
+| Extensions (institution-specific custom fields) | `data.getPerson().getExtensions().get('fieldName')` **(TBD)** |
+
+**On Extensions:** the only confirmed examples of this mechanism in this repo are `bannerSourcedId`, `bannerUserName`, and `bannerUdcId`, seen in the `<extension>` block of [`lis/xml-samples/LIS_person_uploadable_multi_role.xml`](../xml-samples/LIS_person_uploadable_multi_role.xml). (`pronouns` and `inst_email` are a *different*, Snapshot-only mechanism — see [snapshot-user.md](../../snapshot/specs/snapshot-user.md) — not something confirmed via LIS `getExtensions()`.) The same `getExtensions().get('fieldName')` call should work for any other custom field Ellucian's Banner ILP connector is configured to push — class year, campus, and major are plausible candidates. Whether any of those actually arrive, and under what field name, depends entirely on the ILP-to-LIS mapping configured on Ellucian's side; it isn't guaranteed the way a standard field like `institutionRole` is. Check Ellucian's ILP configuration or a live test payload to confirm what extension field names (if any) your instance is actually sending before relying on one.
 
 ---
 
