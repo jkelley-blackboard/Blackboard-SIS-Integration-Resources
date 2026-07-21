@@ -10,7 +10,9 @@ This guide describes how to map incoming **LIS Person** role data to **Blackboar
 We assume:
 
 - Your Blackboard **Institutional Hierarchy** already exists — typically created and maintained via a [Snapshot Hierarchy Node](../../snapshot/specs/snapshot-hierarchy-node.md) feed extracted from Banner.
-- Unlike Course → Node placement, which is **department-based** (see [course-node.md](course-node.md)), User → Node placement here is **role-based**: a fixed set of top-level nodes exist for each primary institution role category (e.g. `STUDENT`, `FACULTY`, `STAFF`, `PROSPECTIVE_STUDENT`), and the node external keys match those values exactly. These node key values are illustrative — confirm they match your own Institutional Hierarchy’s actual node external keys before reusing this script as-is.
+- Unlike Course → Node placement, which is **department-based** (see [course-node.md](course-node.md)), the User → Node example covered in this guide is **role-based**: a fixed set of top-level nodes exist for each primary institution role category (e.g. `STUDENT`, `FACULTY`, `STAFF`, `PROSPECTIVE_STUDENT`), and the node external keys match those values exactly. These node key values are illustrative — confirm they match your own Institutional Hierarchy’s actual node external keys before reusing this script as-is.
+
+> **Role-based placement is the only reference implementation available so far.** Other placement criteria — campus, department, major, and similar — are just as plausible a basis for User → Node mapping, but no working reference script for any of them has turned up yet. If you have (or build) one, it belongs alongside this guide.
 
 The incoming LIS Person record’s primary institution role is available via:
 
@@ -111,6 +113,7 @@ If you adapt one of these scripts, pick one implementation and confirm what your
 - **Confirm your node external keys** match exactly what this script returns — `STUDENT`, `FACULTY`, `STAFF`, `PROSPECTIVE_STUDENT` are illustrative, not fixed Blackboard constants.
 - **Decide what should happen for an unmapped role** and make both implementations agree, rather than relying on whichever behavior happens to fall out of the script’s structure.
 - **Log both the raw role value and the resolved node** — as both reference implementations do — so an unmapped-role or missing-role case is diagnosable from the integration logs alone.
+- **If your institution places users by campus, department, major, or another non-role criterion**, the same `Added Node Batch Uid` field and array-return mechanics described above should still apply — only the mapping logic inside the script would change. No such reference script exists in this repo yet.
 
 ---
 
