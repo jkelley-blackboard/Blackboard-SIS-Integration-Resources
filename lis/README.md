@@ -23,6 +23,8 @@ This section contains custom field mapping scripts, XML samples, and reference d
 - [RHINO 1.7.13 Info](https://p-bakker.github.io/rhino/releases/new_in_rhino_1.7.13.html)
 - [RHINO Engine Compatibility](https://mozilla.github.io/rhino/compat/engines.html)
 
+The custom field mapping scripts in [`scripting/`](scripting/) are JavaScript, but they run inside Blackboard Learn's Java-based SIS Integration Framework — executed by the embedded **Rhino** engine, not a browser or Node.js runtime. Which Rhino version Learn embeds determines what JavaScript syntax is actually safe to use (e.g. newer ES6+ features may not be supported); the two links above are for checking that before relying on modern syntax in a script.
+
 ---
 
 # Guidance for Authoring Custom SIS Field Mapping Scripts in Blackboard
