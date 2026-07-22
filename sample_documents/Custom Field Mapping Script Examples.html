@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://demo.blackboard.com/webapps/dataIntegration/docs/custom_script_examples.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Custom Field Mapping Script Examples</title>
+  <style type="text/css">
+a
+{
+	color: #0e679e;
+	text-decoration: underline;
+	mc-hidden: hidden;
+}
+
+a:hover
+{
+	color: #00b3be;
+	text-decoration: underline;
+}
+
+a:focus
+{
+	color: #00b3be;
+	text-decoration: underline;
+}
+
+a.Popup:link
+{
+	color: #0e679e;
+}
+
+a:link
+{
+	color: #0e679e;
+}
+
+a:visited
+{
+	text-decoration: underline;
+}
+
+a.GlossaryPageTerm
+{
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+a.GlossaryPageTerm:focus
+{
+	color: #00b3be;
+	text-decoration: underline;
+}
+
+a.GlossaryPageTerm:hover
+{
+	color: #00b3be;
+	text-decoration: underline;
+}
+
+a.MCBreadcrumbsLink
+{
+	vertical-align: bottom;
+}
+
+a.tutorial
+{
+	color: #666666;
+	font-size: 0.83em;
+}
+
+body
+{
+	background: transparent;
+	border: 0;
+	font: 10pt /normal Helvetica, Arial, sans-serif;
+	margin-left: 2em;
+	margin-right: 2em;
+	mc-hyphenate: never;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+caption
+{
+	visibility: hidden;
+	margin-top: 0px;
+	position: absolute;
+	left: -999.00em;
+}
+
+div
+{
+	font-size: 10pt;
+}
+
+div.GlossaryPageDefinition
+{
+	font-size: 10pt;
+}
+
+div.GlossaryPageEntry
+{
+	font-size: 12pt;
+}
+
+div.GlossaryPageHeading
+{
+	font-size: 14pt;
+}
+
+div.GlossaryPageTerm
+{
+	font-size: 10pt;
+	font-weight: normal;
+}
+
+h1
+{
+	font-size: 14pt;
+	font-weight: bold;
+	margin-bottom: 0.75em;
+	margin-top: 1em;
+	mc-heading-level: 1;
+	margin-left: 0em;
+	margin-right: 0em;
+}
+
+h2
+{
+	font-size: 12pt;
+	font-weight: bold;
+	margin-bottom: 0.65em;
+	margin-top: 1em;
+	margin-left: 0em;
+	margin-right: 0em;
+}
+
+h2.dropdown
+{
+	display: inline;
+	font-size: 10pt;
+	font-weight: bold;
+	margin-bottom: 1em;
+	margin-top: 0em;
+	margin-left: 0em;
+	margin-right: 0em;
+	mc-heading-level: 2;
+}
+
+h3
+{
+	font-size: 10pt;
+	font-weight: bold;
+	margin-top: 1em;
+	margin-left: 0em;
+	margin-right: 0em;
+	margin-bottom: 0.50em;
+}
+
+h4
+{
+	font-size: 10pt;
+	font-style: italic;
+	font-weight: bold;
+	margin-top: .75em;
+	margin-left: 0em;
+	margin-right: 0em;
+	margin-bottom: 0.4em;
+}
+
+h5
+{
+	font-size: 10pt;
+	font-weight: bold;
+	margin-top: .5em;
+	margin-left: 0em;
+	margin-right: 0em;
+	margin-bottom: 0.25em;
+}
+
+h6
+{
+	font-size: 10pt;
+	font-style: italic;
+	font-weight: bold;
+	margin-top: .4em;
+	margin-left: 0em;
+	margin-right: 0em;
+	margin-bottom: 0.2em;
+}
+
+html.i18n_splash_master
+{
+	mc-master-page: url('../MasterPages/i18n_help_master_splash.flmsp');
+}
+
+html.mini_toc
+{
+	mc-master-page: url('../MasterPages/help_master_mini_toc.flmsp');
+}
+
+html.splash_master
+{
+	mc-master-page: url('../MasterPages/help_master_splash.flmsp');
+}
+
+html.popup_master
+{
+	mc-master-page: url('../MasterPages/help_master_popup.flmsp');
+}
+
+hr.bb_footer_ruler
+{
+	color: #219651;
+}
+
+img
+{
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+img.inline
+{
+	height: 16px;
+	margin-bottom: 0;
+	margin-top: 0;
+	vertical-align: text-bottom;
+	width: auto;
+}
+
+img.screenshot
+{
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+}
+
+img.screenshot_dropdown
+{
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+}
+
+img.tutorial
+{
+	height: 22px;
+	vertical-align: text-bottom;
+	width: auto;
+}
+
+li
+{
+	margin-bottom: 0;
+	margin-left: .4em;
+	margin-top: .6em;
+}
+
+MadCap|breadcrumbsProxy
+{
+	color: #666;
+	border-bottom: 0.5px solid #666;
+	font-size: 8pt;
+	mc-breadcrumbs-count: 4;
+	mc-breadcrumbs-prefix: ' ';
+	vertical-align: bottom;
+}
+
+MadCap|dropDownHead.heading
+{
+	font-weight: bold;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+MadCap|dropDownHead.image
+{
+	margin-bottom: 0em;
+	margin-top: 0.5em;
+}
+
+MadCap|glossaryTerm
+{
+	color: #000000;
+	font-weight: normal;
+	mc-closed-image: none;
+	mc-open-image: none;
+	text-decoration: underline;
+}
+
+MadCap|glossaryTerm.Expanding:focus
+{
+	color: #0e679e;
+}
+
+MadCap|glossaryTerm.Expanding:hover
+{
+	color: #0e679e;
+}
+
+MadCap|glossaryTerm.Hyperlink:focus
+{
+	color: #00b3be;
+}
+
+MadCap|glossaryTerm.Hyperlink:hover
+{
+	color: #00b3be;
+}
+
+MadCap|miniTocProxy
+{
+	border-top-width: 0px;
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-left: 2em;
+}
+
+MadCap|tocProxy
+{
+	border-top-width: 0.5px;
+	border-top-color: #ffffff;
+}
+
+MadCap|topicToolbarProxy
+{
+	float: right;
+}
+
+MadCap|xref
+{
+	mc-format: '{paratext}';
+	color: #0e679e;
+}
+
+MadCap|xref:focus
+{
+	color: #00b3be;
+}
+
+MadCap|xref:hover
+{
+	color: #00b3be;
+}
+
+ol
+{
+	list-style-position: outside;
+	list-style-type: decimal;
+	margin-bottom: 1em;
+	margin-top: .6em;
+	padding-left: 2.5em;
+}
+
+ol ol
+{
+	list-style-type: lower-alpha;
+}
+
+ol ol ol
+{
+	list-style-type: lower-roman;
+}
+
+p
+{
+	margin-bottom: 0.70em;
+	margin-top: 0.70em;
+}
+
+p.audience
+{
+	color: #219651;
+	font-size: 9pt;
+	font-weight: normal;
+	margin-top: 1.0em;
+	margin-bottom: 1.0em;
+}
+
+p.caption
+{
+	font-size: 9pt;
+	font-style: italic;
+	font-weight: bold;
+	margin-bottom: 1.75em;
+	margin-top: -0.4em;
+}
+
+p.codesample
+{
+	background-color: #eee;
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	font-size: 9pt;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: .5em;
+}
+
+p.codesample:first-child
+{
+	margin-top: 1em;
+}
+
+p.codesample:last-child
+{
+	margin-bottom: 1em;
+}
+
+p.copyright
+{
+	font-size: 8pt;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+p.example
+{
+	font-size: 10pt;
+	font-weight: bold;
+	font-style: italic;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	mc-auto-number-format: 'Example: ';
+}
+
+p.note
+{
+	mc-auto-number-class: label;
+	mc-auto-number-format: 'Note:  ';
+}
+
+p.important
+{
+	margin-bottom: 1.25em;
+	margin-top: 1.25em;
+	mc-auto-number-class: label;
+	mc-auto-number-format: 'IMPORTANT!  ';
+}
+
+p.MiniTOC1
+{
+	color: #0e679e;
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+p.reminder
+{
+	mc-auto-number-class: label;
+	mc-auto-number-format: 'Reminder:  ';
+}
+
+p.TOC1
+{
+	font-size: 10pt;
+}
+
+p.TOC2
+{
+	font-size: 10pt;
+}
+
+p.TOC3
+{
+	font-size: 10pt;
+}
+
+p.TOC4
+{
+	font-size: 10pt;
+}
+
+p.TOC5
+{
+	font-size: 10pt;
+}
+
+p.TOC6
+{
+	font-size: 10pt;
+}
+
+p.tutorial
+{
+	color: #219651;
+	margin-bottom: 1.5em;
+	margin-top: 1.5em;
+	mc-auto-number-class: label;
+	mc-auto-number-format: 'Related Tutorials  ';
+}
+
+p.tip
+{
+	mc-auto-number-class: label;
+	mc-auto-number-format: 'Tip:  ';
+}
+
+p.warning
+{
+	margin-bottom: 1.25em;
+	margin-top: 1.25em;
+	mc-auto-number-class: label;
+	mc-auto-number-format: 'WARNING!  ';
+}
+
+span.audience
+{
+	font-weight: bold;
+}
+
+span.code
+{
+	font-family: 'Lucida Console', 'Courier New', monospace;
+}
+
+span.emphasize
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+span.interface
+{
+	font-weight: bold;
+}
+
+span.keyboard
+{
+	font-family: 'Lucida Console', 'Courier New', monospace;
+	text-transform: uppercase;
+}
+
+span.label
+{
+	font-style: italic;
+	font-weight: bold;
+}
+
+span.offscreen
+{
+	left: -999em;
+	position: absolute;
+}
+
+span.product
+{
+	
+}
+
+span.variable
+{
+	font-style: italic;
+}
+
+span.tutorial
+{
+	font-size: 0.83em;
+	color: #666666;
+}
+
+table
+{
+	border: solid 1px #ccc;
+	border-collapse: collapse;
+	margin-left: 0;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+table.borderless
+{
+	border: none 0px;
+}
+
+th
+{
+	background-color: #ddd;
+	border: solid 1px #ccc;
+	font-size: 9pt;
+	padding: .2em .7em;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+td
+{
+	border: solid 1px #ccc;
+	font-size: 9pt;
+	vertical-align: top;
+	margin-top: .6em;
+	padding: .2em .7em;
+}
+
+td.subhead
+{
+	background-color: #eee;
+	border: solid 1px #ccc;
+	font-size: 9pt;
+	font-weight: bold;
+	margin-top: .6em;
+	padding: .2em .7em;
+	vertical-align: top;
+}
+
+ul
+{
+	list-style-type: disc;
+	margin-bottom: 1em;
+	margin-top: .6em;
+	padding-left: 1.25em;
+}
+
+ul ul
+{
+	list-style-type: circle;
+}
+
+ul ul ul
+{
+	list-style-type: square;
+}
+
+@media print
+{
+	a.tutorial
+	{
+		font-size: 0.83em;
+	}
+
+	caption
+	{
+		display: none;
+	}
+
+	img
+	{
+		max-width: 6in;
+	}
+
+	img.screenshot
+	{
+		margin-bottom: 1em;
+		margin-top: 1em;
+	}
+
+	img.screenshot_dropdown
+	{
+		margin-bottom: 1em;
+	}
+
+	h1
+	{
+		font-size: 18pt;
+		font-style: normal;
+		font-weight: bold;
+		margin: 0pt;
+		margin-top: 8pt;
+		margin-bottom: 8pt;
+		page-break-after: avoid;
+		mc-heading-level: 1;
+	}
+
+	h2
+	{
+		font-size: 16pt;
+		font-style: normal;
+		font-weight: bold;
+		margin: 0pt;
+		margin-top: 24pt;
+		margin-bottom: 8pt;
+		page-break-after: avoid;
+		mc-heading-level: 2;
+	}
+
+	h2.dropdown
+	{
+		display: block;
+		font-size: 16pt;
+		font-weight: bold;
+		margin: 0pt;
+		margin-top: 24pt;
+		margin-bottom: 8pt;
+		page-break-after: avoid;
+		mc-heading-level: 2;
+	}
+
+	h3
+	{
+		color: #4c4e49;
+		font-size: 14pt;
+		font-style: normal;
+		font-weight: bold;
+		margin: 0pt;
+		margin-top: 20pt;
+		margin-bottom: 8pt;
+		page-break-after: avoid;
+		mc-heading-level: 3;
+	}
+
+	h4
+	{
+		color: #4c4e49;
+		font-size: 13pt;
+		font-style: normal;
+		font-weight: bold;
+		margin: 0pt;
+		margin-top: 16pt;
+		margin-bottom: 8pt;
+		page-break-after: avoid;
+		mc-heading-level: 0;
+	}
+
+	h5
+	{
+		color: #666666;
+		font-size: 12pt;
+		font-style: italic;
+		font-weight: bold;
+		margin: 0pt;
+		margin-top: 14pt;
+		margin-bottom: 7pt;
+		page-break-after: avoid;
+		mc-heading-level: 0;		
+	}
+
+	h6
+	{
+		color: #666666;
+		font-size: 11pt;
+		font-style: normal;
+		font-weight: bold;
+		margin: 0pt;
+		margin-top: 12pt;
+		margin-bottom: 6pt;
+		page-break-after: avoid;
+		mc-heading-level: 0;
+	}
+
+	MadCap|xref
+	{
+		text-decoration: underline;
+	}
+
+	MadCap|dropDown
+	{
+		margin-top: 2em;
+	}
+
+	MadCap|dropDownHead.image
+	{
+		margin-bottom: 0.5em;
+		margin-top: 0.5em;
+	}
+
+	MadCap|tocProxy
+	{
+		
+	}
+
+	p
+	{
+		orphans: 2;
+		widows: 2;
+	}
+
+	p.example
+	{
+		margin-top: 1em;
+		page-break-after: avoid;
+	}
+
+	p.important
+	{
+		mc-auto-number-format: 'IMPORTANT!  ';
+	}
+
+	p.note
+	{
+		mc-auto-number-format: 'Note:  ';
+	}
+
+	p.reminder
+	{
+		mc-auto-number-format: 'Reminder:  ';
+	}
+
+	p.tip
+	{
+		mc-auto-number-format: 'Tip:  ';
+	}
+
+	p.tutorial
+	{
+		margin-top: 2em;
+	}
+
+	p.warning
+	{
+		margin-bottom: 0.7em;
+		margin-top: 0.7em;
+		mc-auto-number-format: 'WARNING!  ';
+	}
+
+	span.emphasize
+	{
+		
+	}
+
+	span.offscreen
+	{
+		visibility: hidden;
+		mc-hidden: hidden;
+	}
+
+	span.product
+	{
+		
+	}
+
+	p.caption
+	{
+		margin-bottom: 1.8em;
+		font-size: 9pt;
+		margin-top: 0.40em;
+	}
+
+	table
+	{
+		
+	}
+
+	td
+	{
+		margin-bottom: 3pt;
+		margin-top: 3pt;
+		padding: 0.04in;
+	}
+
+	td.subhead
+	{
+		margin-top: 3pt;
+		padding: 0.04in;
+	}
+
+	th
+	{
+		margin-top: 3pt;
+		margin-bottom: 3pt;
+		padding-bottom: 0.00in;
+		padding: 0.04in;
+	}
+}
+
+@media non-print
+{
+	div.GlossaryPageTerm
+	{
+		text-decoration: underline;
+	}
+
+	img
+	{
+		max-width: 8in;
+	}
+
+	MadCap|dropDownBody
+	{
+		padding-left: 1.35em;
+		padding-right: 1.35em;
+	}
+
+	MadCap|dropDownHead.heading
+	{
+		color: #1280c5;
+	}
+
+	MadCap|dropDownHead.image
+	{
+		color: #0e679e;
+	}
+
+	MadCap|dropDownHotspot
+	{
+		color: #1280c5;
+	}
+
+	MadCap|dropDownHotspot:focus
+	{
+		color: #00b3be;
+	}
+
+	MadCap|dropDownHotspot:hover
+	{
+		color: #00b3be;
+		text-decoration: none;
+	}
+
+	p.note
+	{
+		mc-auto-number-format: 'Note:  ';
+	}
+	}
+  </style>
+ </head>
+ <body>
+ <h1>Custom Field Mapping Script Examples</h1>
+ <p>This document contains examples of the kinds of Field Mapping transformations 
+available via the Advanced Configuration "Use a Custom Script" option.</p>
+ <h2>Introduction</h2>
+ <p>The custom field mapping scripts are all written in <strong>JavaScript</strong>.</p>  
+ <p>For those unfamiliar with the language, there is a great <a href="https://developer.mozilla.org/en/JavaScript/Guide">JavaScript Guide</a> hosted on the Mozilla Developer Network.</p>
+ <p>If a script has multiple statements in it, the value that is returned to the Field Mapping infrastructure is the value of the <em>last</em> statement.</p>
+ <p>E.g. This script returns the string <span class="code">"Hello World"</span></p>
+ <blockquote>
+ <pre><span class="code">var h = "Hello";
+var w = "World";
+h + w;</span></pre></blockquote>
+ <p>If you want, you can wrap your script in an anonymous <span class="code">function</span> call (this allows returning values from more than one place).  E.g.</p>
+ <blockquote><pre><span class="code">(function() {
+  if ( Math.random() &gt; 0.5 )
+  {
+    return "Heads";
+  }
+  else
+  {
+    return "Tails";
+  }
+}());</span></pre></blockquote>
+ 
+ <p>In addition to all normal JavaScript functionality, several global variables are available to each custom field mapping script.</p>
+ <ul>
+  <li><span class="code">data</span>  
+   <ul>
+    <li>This contains the incoming data object from the Student Information System (SIS).</li> 
+    <li>The type of object passed in varies depending on the SIS and the type of incoming data.</li>
+    <li>Each SIS Integration Type will provide a JavaDoc package describing the objects that will be provided to this variable.</li>
+    <li>For example, for a <em>Person</em> Field Mapping, a SIS object may contain the person's name, address, phone number, username, password, etc.</li>
+  </ul>
+  </li>
+  <li><span class="code">helper</span>
+    <ul>
+     <li>This contains helper methods for common operations.</li>
+     <li>Some of the functions are always available, while others are only applicable to a specific SIS Integration Type.</li>
+    </ul>
+  </li>
+ </ul>
+ 
+ <h3>ScriptHelper</h3>
+ <p>This is the object exposed as the <span class="code">helper</span> variable to your scripts.</p>
+ <p>It has the following methods:</p>
+ <ul>
+  <li><span class="code">String getBatchUid( String id )</span> - This constructs an identifier that is prefixed with the <em>Batch Uid Prefix</em> specific to the SIS Integration that the mapping is running on.  This should be used whenever generating "unique" ids as the prefix can assist in avoiding id conflicts.</li>
+  <li><span class="code">String getXPathString( String xmlString, String xPathQuery )</span> - This takes a string of XML and performs an <a href="http://www.w3.org/TR/xpath/">XPath</a> query on it.</li>
+  <li><span class="code">Object getHelper( String helperName )</span> - This returns a SIS Integration Type-specific helper object that contains helper methods applicable to that integration type.  Documentation for these helpers will be provided in the JavaDocs for each SIS Integration Type.</li>
+  <li><span class="code">Object skipAttribute()</span> - This returns a value that when returned from a mapping script causes the field being mapped to be skipped (not changed.)</li>
+  <li><span class="code">Object skipAttributeIfNull( Object value )</span> - If the value passed in is null, this returns the same thing as <span class="code">skipAttribute</span>.  If it is not null, the value is returned.</li>
+  <li><span class="code">Object skipRecord()</span> - This returns a value that when returned from a mapping script causes the entire record currently being processed to be skipped.</li>
+  <li><span class="code">Object skipRecordIfNull( Object value )</span> - If the value passed in is null, this returns the same thing as <span class="code">skipRecord</span>.  If it is not null, the value is returned.</li>
+  <li><span class="code">void logError( String msg )</span> - Log an error-level message to the log for the current integration.</li>
+  <li><span class="code">void logWarning( String msg )</span> - Log a warning-level message to the log for the current integration.</li>
+  <li><span class="code">void logInfo( String msg )</span> - Log an information-level message to the log for the current integration.</li>
+  <li><span class="code">void logDebug( String msg )</span> - Log a debug-level message to the log for the current integration.</li>
+ </ul>
+ 
+ <h2>Script Examples</h2>
+ <p>These scripts assume a theoretical <strong>Person</strong> SIS object is being passed as the <span class="code">data variable that has the following structure:</span></p>
+ <p><span class="code">Person</span></p>
+ <ul>
+  <li><span class="code">String getUniqueId()</span>
+  </li><li><span class="code">Name getName()</span></li>
+  <li><span class="code">UserInfo getUserInfo()</span></li>
+  <li><span class="code">Map&lt;String,PhoneNumber&gt; getPhoneNumbers()</span></li>
+  <li><span class="code">String getDescrption()</span></li>
+  <li><span class="code">String getXmlExtension()</span></li>
+ </ul>
+ <p><span class="code">Name</span></p>
+ <ul>
+  <li><span class="code">String getGiven()</span></li>
+  <li><span class="code">String getFamily()</span></li>
+  <li><span class="code">String getMiddle()</span></li>
+ </ul>
+ <p><span class="code">UserInfo</span></p>
+ <ul>
+  <li><span class="code">String getUsername()</span></li>
+  <li><span class="code">String getPassword()</span></li>
+  <li><span class="code">String getSystemRole()</span></li>
+ </ul>
+ <p><span class="code">PhoneNumber</span></p>
+ <ul>
+  <li><span class="code">String getType()</span></li>
+  <li><span class="code">String getNumber()</span></li>
+ </ul> 
+ 
+ <h2>Simple Value Retrieval</h2>
+ <p>This is the simplest kind of script, where you just want to retrieve a value from the SIS object</p>
+ <h3>Get the Person's first name</h3>
+ <blockquote><pre><span class="code">// Note: This can also be written as 'data.getName().getGiven();'
+data.name.given;</span></pre></blockquote>
+ <h3>Get the Person's home phone number</h3>
+ <blockquote><pre><span class="code">data.phoneNumbers.get( 'home' ).number;</span></pre></blockquote>
+ 
+ <h2>String Manipulation</h2>
+ <p>Also still fairly simple, manipulating and changing the values of data from the SIS object.</p>
+ <h3>Get the Person's full name</h3>
+ <blockquote><pre><span class="code">data.name.given + ' ' + data.name.middle + ' ' + data.name.family;</span></pre></blockquote> 
+ <h3>Get the Person's last name followed by a comma, followed by their first initial</h3>
+ <blockquote><pre><span class="code">data.name.family + ', ' data.name.given.substring( 0, 1 ) + '.';</span></pre></blockquote>  
+ <h3>Lowercase the Person's username</h3>
+ <blockquote><pre><span class="code">data.userInfo.username.toLowerCase();</span></pre></blockquote>
+ <h3>Add a prefix onto the Person's username</h3>
+ <blockquote><pre><span class="code">'PREFIX_' + data.userInfo.username;</span></pre></blockquote>
+ <h3>Truncate the Person's description if it's longer than 50 characters.</h3>
+ <blockquote><pre><span class="code">(function(){
+  var desc = data.description;
+  if ( desc.length() &gt; 50 )
+  {
+    return desc.substring( 0, 50 );
+  }
+  else
+  {
+    return desc;
+  }
+}());
+ </span></pre></blockquote>
+ 
+ <h2>Value Normalization</h2>
+ <p>You may need to convert enumerated values from the SIS into a format that Learn can recognize</p>
+ <h3>Convert Person's SIS system role to a Learn system role</h3>
+ <blockquote><pre><span class="code">(function(){
+  var role = data.systemRole;
+  if ( role == 'SysAdmin' ) 
+  {
+    return 'SYSTEM_ADMIN';
+  }
+  else if ( role == 'SysSupport' ) 
+  {
+    return 'SYSTEM_SUPPORT';
+  }
+  else if ( role == 'User' ) 
+  {
+    return 'USER';
+  }
+  else 
+  {
+    // If no role is specified, or it's
+    // not a known role, fallback to a default.
+    return 'USER';
+  }
+}());
+ </span></pre></blockquote>
+ 
+ <h2>Handling Missing Data/Redundant Data</h2>
+ <p>Sometimes data may be missing from the feed, or multiple possible values could be used for a single field.</p>
+ 
+ <h3>Using a default password if the Person doesn't have one.</h3>
+ <blockquote><pre><span class="code">(function(){
+  var pw = data.userInfo.password;
+  if ( pw )
+  {
+    return pw;
+  }
+  else
+  {
+    return 'pAssw0rD!';
+  }
+}());
+ </span></pre></blockquote> 
+
+ <h3>Choosing either the Person's Home phone number or their Work phone number if the home one isn't specified.</h3>
+ 
+  <blockquote><pre><span class="code">(function(){
+  var phoneNumbers = data.phoneNumbers;
+  if ( phoneNumbers.containsKey( 'home' ) )
+  {
+    return phoneNumbers.get( 'home' ).number;
+  }
+  else if ( phoneNumbers.containsKey( 'work' ) )
+  {
+    return phoneNumbers.get( 'work' ).number;
+  }
+  else
+  {
+    // Person doesn't have either phone number, so leave it blank.
+    return null;
+  }
+}());
+ </span></pre></blockquote> 
+ 
+ <h3>Choosing the first phone number</h3>
+ <blockquote><pre><span class="code">(function(){
+  var phoneNumbers = data.phoneNumbers;
+  if ( !phoneNumbers.isEmpty() )
+  {
+    // This gets the collection of values in the phoneNumber map,
+    // gets an iterator for iterating over the entries,
+    // and then gets the first value from that iterator.
+    return phoneNumbers.values().iterator().next().number;
+  }
+  else
+  {
+    return null;
+  }
+}());
+ </span></pre></blockquote>  
+
+ <h2>Using the ScriptHelper</h2>
+ <p>The <span class="code">helper</span> can help you with some typical tasks.</p>
+ <p>For this example, assume that a <em>'Person'</em> helper has also been registered by this SIS Integration Type that has the following methods:</p>
+ <ul>
+  <li><span class="code">boolean isStudent( Person p )</span></li>
+  <li><span class="code">boolean isAdministrator( Person p)</span></li>
+ </ul>
+ <p>Also assume that the Person object has this XML string set in its <span class="code">xmlExtension</span></p>
+ <blockquote><pre><span class="code">&lt;extension&gt;
+ &lt;customPassword&gt;myPassword&lt;/customPassword&gt;
+&lt;/extension&gt;</span></pre></blockquote>
+ 
+ <h3>Generating a Batch Uid for the Person</h3>
+ <blockquote><pre><span class="code">helper.getBatchUid( person.uniqueId );</span></pre></blockquote>
+
+ <h3>Generate a different value depending on whether the Person is a Student or Administrator</h3>
+ <blockquote><pre><span class="code">(function(){
+  var personHelper = helper.getHelper( 'Person' );
+  if ( personHelper.isStudent( data ) )
+  {
+    return 'I am a Student.';
+  }
+  else if ( personHelper.isAdministrator( data ) )
+  {
+    return 'I am an Administrator.';
+  }
+  else
+  {
+    return 'I am something completely different.'
+  }
+}());
+ </span></pre></blockquote>   
+ 
+ <h3>Get the custom password out of the Person xmlExtension using an XPath query</h3>
+ <blockquote><pre><span class="code">helper.getXPathString( data.xmlExtension, '/extension/customPassword[1]' );</span></pre></blockquote>
+ 
+ <h3>Skip the attribute if the name is null, otherwise return the name.</h3>
+ <blockquote><pre><span class="code">if ( data.name == null ) 
+{
+  helper.skipAttribute();
+} 
+else
+{
+  data.name;
+}</span></pre></blockquote>
+ 
+ <p>&nbsp;</p>
+            <hr width="100%" size="0" align="center">
+            <p class="copyright" style="text-align: left;">
+            © 2011 Blackboard Inc. Proprietary and Confidential. Copyright<br>U.S. Patent No. 6,988,138. Additional Patents Pending.</p>
+ 
+  
+
+
+
+</body></html>

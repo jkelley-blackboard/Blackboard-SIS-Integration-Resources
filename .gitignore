@@ -1,1 +1,7 @@
 .claude/
+
+# Raw generated JavaDoc reference material (large, regenerable) -- keep sample_documents/README.md tracked
+sample_documents/data-integration-flatfile-javadoc/
+sample_documents/data-integration-flatfile-javadoc.zip
+sample_documents/data-integration-lis-final-javadoc/
+sample_documents/data-integration-lis-final-javadoc.zip
