@@ -1,6 +1,10 @@
 # LIS (Learning Information Services)
 
-Resources for Blackboard Learn LIS-based SIS integrations, including custom field mapping scripts, XML samples, and reference documentation.
+LIS (IMS Global Learning Information Services) is one of the two SIS integration types Blackboard Learn supports — a standard for exchanging Person, Course Section, Membership, and Term data between a Student Information System and Learn. Ellucian's Intelligent Learning Platform (ILP) is the LIS implementation this section's guides and scripts are written against.
+
+See Blackboard's official documentation for a full introduction to the integration type: [IMS Learning Information Services (LIS)](https://help.anthology.com/blackboard/administrator/en/integrations/student-information-system--sis-/ims-learning-information-services--lis-.html).
+
+This section contains custom field mapping scripts, XML samples, and reference documentation for LIS-based integrations.
 
 > This content is provided as-is, without warranty or support of any kind. Blackboard retains all rights. Use at your own risk.
 
