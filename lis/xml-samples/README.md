@@ -16,7 +16,7 @@
 
 ## The Uploadable Wrapper (`<bulkDataRecord>`)
 
-Manual uploads through the Blackboard admin UI require a `<bulkDataRecord>` envelope that packages a LIS operation with explicit service and parameter metadata. This differs from the native format the Integration Layer Provider (ILP) sends automatically.
+Manual uploads through the Blackboard admin UI require a `<bulkDataRecord>` envelope that packages a LIS operation with explicit service and parameter metadata. This differs from the native format Ellucian's Intelligent Learning Platform (ILP) sends automatically.
 
 ### Structure
 
