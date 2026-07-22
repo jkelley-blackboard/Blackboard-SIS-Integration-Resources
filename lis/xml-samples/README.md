@@ -11,7 +11,7 @@
 | `LIS_courseSection_uploadable_2.xml` | Uploadable | Full course section example |
 | `LIS_person_uploadable.xml` | Uploadable | Person record example |
 | `LIS_membership_uploadable.xml` | Uploadable | Membership (enrollment) record example |
-| `ILP_LIS_course_section.xml` | Guidance-only | Native ILP request format (not directly uploadable) |
+| `ILP_LIS_course_section.xml` | Guidance-only | Native Ellucian ILP request format (not directly uploadable) |
 | `sample_LIS2_term.xml` | Guidance-only | LIS 2.0 term (group) record example |
 
 ## The Uploadable Wrapper (`<bulkDataRecord>`)
@@ -49,11 +49,11 @@ Manual uploads through the Blackboard admin UI require a `<bulkDataRecord>` enve
 </bulkDataRecord>
 ```
 
-### Uploadable format vs. native ILP format
+### Uploadable format vs. native Ellucian ILP format
 
 The inner course section data is the same in both formats. The differences are in the outer structure:
 
-| | Uploadable (`<bulkDataRecord>`) | Native ILP (`<replaceCourseSectionRequest>`) |
+| | Uploadable (`<bulkDataRecord>`) | Native Ellucian ILP (`<replaceCourseSectionRequest>`) |
 |---|---|---|
 | **Root element** | `<bulkDataRecord>` | `<replaceCourseSectionRequest xmlns="...">` |
 | **Namespace** | None | IMS LIS CMS v1.0 on root element |

@@ -11,10 +11,10 @@ We assume:
 
 - Your Blackboard **Institutional Hierarchy** already exists — typically created and maintained via a [Snapshot Hierarchy Node](../../snapshot/specs/snapshot-hierarchy-node.md) feed extracted from Banner, populated with these same Name/ID/Description values.
 - The **lowest-level nodes** represent academic **departments**.
-- Node values originate from your SIS and match ILP fields (e.g.,  
+- Node values originate from your SIS and match Ellucian ILP fields (e.g.,  
   **Name:** `PSY` • **ID:** `0256` • **Description:** "Psychology Department").
 
-ILP must be configured to include the department metadata in the LIS **Course Section** XML.
+Ellucian ILP must be configured to include the department metadata in the LIS **Course Section** XML.
 
 Full XML example: [`ILP_LIS_course_section.xml`](../xml-samples/ILP_LIS_course_section.xml)
 
@@ -147,14 +147,14 @@ If your institution frequently uses secondary nodes, handle them via **Snapshot 
 
 ## **4) Recommended Overall Strategy**
 
-- **Use LIS for primary node (department) placement** — mapping leverages ILP’s `<org>` block.  
+- **Use LIS for primary node (department) placement** — mapping leverages Ellucian ILP’s `<org>` block.  
 - **Avoid secondary nodes via LIS unless absolutely necessary** — prefer Snapshot Associations for clarity and key control.  
 - **Use `=` concatenation for association keys** with the order `courseSourcedId=deptId`.  
-- **Keep node IDs consistent** — ensure Blackboard node external IDs match ILP `<org.id>` or `<orgUnit>` values.
+- **Keep node IDs consistent** — ensure Blackboard node external IDs match Ellucian ILP `<org.id>` or `<orgUnit>` values.
 
 ---
 
-- **ILP LIS Course Section XML Sample**: [`ILP_LIS_course_section.xml`](../xml-samples/ILP_LIS_course_section.xml)
+- **Ellucian ILP LIS Course Section XML Sample**: [`ILP_LIS_course_section.xml`](../xml-samples/ILP_LIS_course_section.xml)
 - **Working Primary Node Mapping Script**: [`LIS_course_primary_node_department.js`](LIS_course_primary_node_department.js)
 
 ---
