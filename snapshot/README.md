@@ -17,3 +17,6 @@ Field-level specifications for all Snapshot Flat File object types, in Markdown 
 
 ### [`operations/`](operations/)
 Guidance for running the integration day-to-day, starting with [Posting Requests](operations/snapshot-posting-guide.md) — how to construct and send the HTTP requests, check processing status, and automate recurring feeds.
+
+### [`tools/`](tools/)
+Scripts for working with Snapshot flat files, starting with [`validate_snapshot_files.py`](tools/validate_snapshot_files.py) — validates a folder of flat-file CSV exports against the specs in `specs/`.
