@@ -60,3 +60,4 @@ NODE.ENGR.DEPT|SIS-IMPORT-2025|NODE.ENGR|Department of Engineering
 - **Minimum required headers:** `external_node_key`, `data_source_key`, `parent_node_key`, `name`.
 - **Submit parent nodes before child nodes** to ensure the hierarchy can be resolved.
 - **`external_node_key`** may contain only letters, digits, dashes, and periods — no spaces.
+- **The LMS has a default, top-level node** with the immutable key value (case sensitive) `Top`.
