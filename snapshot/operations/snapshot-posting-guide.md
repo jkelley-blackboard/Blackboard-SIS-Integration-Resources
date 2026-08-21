@@ -20,7 +20,7 @@ Operational guidance for constructing and executing the HTTP requests that submi
 Every Snapshot Flat File request is an HTTPS POST with HTTP Basic Auth and the file as the raw request body.
 
 ```text
-POST https://{learn-host}/webapps/bb-data-integration-flatfile-{building-block-id}/endpoint/{object}/{operation}
+POST https://{learn-host}/webapps/bb-data-integration-flatfile-{deployment-id}/endpoint/{object}/{operation}
 Authorization: Basic base64(username:password)
 Content-Type: text/xml
 ```
@@ -32,7 +32,7 @@ curl -w "\n%{http_code}\n" \
   -H "Content-Type: text/xml" \
   -u "${SNAPSHOT_USERNAME}:${SNAPSHOT_PASSWORD}" \
   --data-binary @"${FILE_PATH}" \
-  "https://${LEARN_HOST}/webapps/bb-data-integration-flatfile-${BB_ID}/endpoint/${OBJECT}/${OPERATION}"
+  "https://${LEARN_HOST}/webapps/bb-data-integration-flatfile-${DEPLOYMENT_ID}/endpoint/${OBJECT}/${OPERATION}"
 ```
 
 - `{object}` — endpoint slug from the [Overview](../snapshot-flat-file-overview.md#complete-endpoint-reference) table, e.g. `person`, `course`, `membership`.
@@ -73,7 +73,7 @@ Run through this before firing any request that isn't a `store` against a test e
 ## Checking Processing Status
 
 ```text
-GET https://{learn-host}/webapps/bb-data-integration-flatfile-{building-block-id}/endpoint/dataSetStatus/{dataSetUid}
+GET https://{learn-host}/webapps/bb-data-integration-flatfile-{deployment-id}/endpoint/dataSetStatus/{dataSetUid}
 ```
 
 Pass the `dataSetUid` from the POST response (see [Response Format](#response-format) above). This may be called well after the original POST completes — processing is asynchronous. Returns an XML block:
@@ -114,7 +114,7 @@ The shared username/password is a standing credential against a production syste
 
 ```bash
 export LEARN_HOST="learn.example.edu"
-export BB_ID="xxxxxxxxxxxxxxxx"
+export DEPLOYMENT_ID="xxxxxxxxxxxxxxxx"
 export SNAPSHOT_USERNAME="svc_snapshot"
 export SNAPSHOT_PASSWORD="<from secrets manager>"
 
@@ -122,7 +122,7 @@ curl -w "\n%{http_code}\n" \
   -H "Content-Type: text/xml" \
   -u "${SNAPSHOT_USERNAME}:${SNAPSHOT_PASSWORD}" \
   --data-binary @./users_batch.txt \
-  "https://${LEARN_HOST}/webapps/bb-data-integration-flatfile-${BB_ID}/endpoint/person/store"
+  "https://${LEARN_HOST}/webapps/bb-data-integration-flatfile-${DEPLOYMENT_ID}/endpoint/person/store"
 ```
 
 `users_batch.txt` follows the field layout in [User](../specs/snapshot-user.md), e.g.:
@@ -141,7 +141,7 @@ curl -w "\n%{http_code}\n" \
   -H "Content-Type: text/xml" \
   -u "${SNAPSHOT_USERNAME}:${SNAPSHOT_PASSWORD}" \
   --data-binary @./courses_full_export.txt \
-  "https://${LEARN_HOST}/webapps/bb-data-integration-flatfile-${BB_ID}/endpoint/course/refresh"
+  "https://${LEARN_HOST}/webapps/bb-data-integration-flatfile-${DEPLOYMENT_ID}/endpoint/course/refresh"
 ```
 
 See [Course / Organization](../specs/snapshot-course.md) for the required field layout.
