@@ -9,6 +9,14 @@ author: "Jeff Kelley, Principal Solutions Engineer, Blackboard Inc."
 
 # Posting Requests
 
+## In Plain Terms
+
+Think of a Snapshot Flat File like mailing a package to Blackboard Learn. You pack your data — a list of users, courses, enrollments, whatever you're sending — into a plain text file, formatted a specific way. You send that file over the internet to a specific web address at your Learn instance. Learn opens the package, processes what's inside, and hands you back a tracking number so you can check whether everything inside arrived and was accepted.
+
+This guide covers that shipping process, step by step: how to address and send the package (the HTTP request), how to read the receipt you get back, and how to use the tracking number to confirm it was actually processed — not just delivered.
+
+---
+
 Operational guidance for constructing and executing the HTTP requests that submit Snapshot Flat File data to Blackboard Learn. This complements the field-level object specs — start there for file format and required fields per object; use this doc when you're ready to actually send a request.
 
 > As with the rest of this repository, this content is provided as-is, without warranty or support of any kind — Blackboard retains all rights. Always confirm current behavior against your own Learn instance and Blackboard's official documentation before relying on it.
@@ -150,19 +158,14 @@ See [Course / Organization](../specs/snapshot-course.md) for the required field 
 
 ## Automating Requests
 
-For a recurring feed (e.g. a nightly SIS export), don't just cron a raw `curl` call — the pattern below (adapted from Blackboard's own [Snapshot Flat File Automation](https://help.anthology.com/blackboard/administrator/en/integrations/student-information-system--sis-/snapshot-flat-file/snapshot-flat-file-automation.html) guide) is worth replicating:
+Don't just cron a raw `curl` call for a recurring feed (e.g. a nightly SIS export) — a reliable automation needs a dispatch step, a posting-and-status-polling step, archiving, and separate scheduling for `store` vs. `refresh`, at minimum.
 
-- **A dispatch step** watches a drop directory, inspects each file's header row to determine its object type, and groups files into the correct processing order — **users, then courses, then memberships** — since later objects depend on earlier ones existing.
-- **A per-file posting step** does the actual POST for a single file, captures the `dataSetUid`, polls `dataSetStatus` until processing finishes, and reports success/failure — this should also be usable standalone for a manual/one-off submission.
-- Once a file's posting step confirms completion, archive the source file (e.g. with a processing timestamp appended to the filename) before moving to the next file, and send a summary report after the whole batch.
-- **Schedule `store` and `refresh` separately.** Because refresh operations can run longer than store operations on the same data, use separate cron entries (and separate drop directories, if dispatch is directory-per-operation) so a slow refresh doesn't collide with the next scheduled store.
-
-This repo doesn't vendor any reference implementation of this pattern — treat the above as the shape to replicate; the actual object-processing order and per-object payloads should still come from this repo's [object specs](../specs/README.md).
+For the full pattern — plus the option of subscribing to Blackboard's own SIS Framework Controller instead of building this yourself — see **[Automating Snapshot Feeds — Building a Controller](snapshot-automation-guide.md)**.
 
 ---
 
 ## Notes
 
 - This guide covers the request mechanics only. Object-specific fields, required columns, and value formats live in each object's spec page linked from [`specs/README.md`](../specs/README.md).
-- For the automation/monitoring pattern (cron scheduling, dispatch-and-post script split, status-email reporting), see Blackboard's [Snapshot Flat File Automation](https://help.anthology.com/blackboard/administrator/en/integrations/student-information-system--sis-/snapshot-flat-file/snapshot-flat-file-automation.html) guide, which this section summarizes.
+- For recurring/scheduled feeds, see [Automating Snapshot Feeds — Building a Controller](snapshot-automation-guide.md).
 - If your endpoint or Learn version behaves differently from what's described here (response format, status codes, auth scheme), trust your own instance's observed behavior over this document and update it accordingly.
