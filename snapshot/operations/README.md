@@ -8,3 +8,4 @@ Operational guidance for running Snapshot Flat File integrations — constructin
 
 - [Posting Requests](snapshot-posting-guide.md)
 - [Automating Snapshot Feeds — Building a Controller](snapshot-automation-guide.md)
+- [Converting Full-Load Snapshot Exports to Diffs](snapshot-diff-guide.md)

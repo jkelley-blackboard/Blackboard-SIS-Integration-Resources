@@ -67,7 +67,7 @@ Capture this reference code from the response body. A 2xx/success response here 
 Run through this before firing any request that isn't a `store` against a test environment:
 
 1. **Confirm the target host.** Double-check `{learn-host}` resolves to the environment you intend (Test/Stage vs. Production). It's easy to fire a script at the wrong environment.
-2. **Confirm the operation.** `store` is additive/idempotent (smart insert-or-update). `refresh` will disable or purge any record *not* present in the submitted file across the whole integration. `delete` acts only on records listed in the file. See the [Delete Behaviors](../snapshot-flat-file-overview.md#delete-behaviors) table — some objects are purged, not disabled, and purge is not recoverable.
+2. **Confirm the operation.** `store` is additive/idempotent (smart insert-or-update). `refresh` will disable or purge any record *not* present in the submitted file across the whole integration. `delete` acts only on records listed in the file. See the [Delete Behaviors](../snapshot-flat-file-overview.md#delete-behaviors) table — some objects are purged, not disabled, and purge is not recoverable. See [REFRESH Risk](#refresh-risk) below before relying on `refresh` for a recurring feed.
 3. **Confirm the Data Source Key.** It must already exist in **Administrator Panel > Data Integration > Data Source Keys**, and must match what the file (or the integration config) expects.
 4. **Validate the file before sending.** Header row present, pipe-delimited, UTF-8, required columns per the relevant object spec. Sending a malformed file to `refresh` is more costly than to `store` since it defines "everything that should still exist."
 5. **Dry-run on Test/Stage first** for anything other than a small `store` batch, if a non-production Learn instance is available to you.
@@ -75,6 +75,17 @@ Run through this before firing any request that isn't a `store` against a test e
 7. **Follow up on processing status.** Learn processes submitted data sets asynchronously; capture the `dataSetUid` from the response and poll the status endpoint below to confirm the batch actually completed and to check for per-record errors, rather than assuming success from the POST response alone.
 8. **Budget more time for `refresh` than `store`.** Complete Refresh operations process the full managed set and can take noticeably longer than a `store` of the same file size — this matters when scheduling recurring jobs (see [Automating Requests](#automating-requests)) so a slow refresh doesn't overlap the next scheduled run.
 9. **Log what you did** (host, object, operation, filename, timestamp, initiator) somewhere durable for audit purposes — but never log the credentials themselves.
+
+---
+
+## REFRESH Risk
+
+`refresh` operates against an entire managed data set — potentially every user, course, or enrollment an institution has — not just the records that actually changed. That makes it inherently riskier than `store`, in a few concrete ways:
+
+- **Large data sets mean large files and heavy processing.** A refresh against a full population is a much bigger job for Learn to process than an incremental `store`, and simply takes longer to run — see checklist item 8 above.
+- **An interrupted or truncated file doesn't just fail — it actively damages data.** If the request is interrupted mid-transfer, or the file gets truncated before Learn receives all of it, Learn still treats what it *did* receive as "this is everything that should exist." Records that were cut off from the file — even though they're still valid on the SIS side — get disabled or purged along with anything genuinely removed. A failed `store` simply fails to apply that batch; a truncated `refresh` can silently and incorrectly disable real, active records.
+
+**Blackboard's strong recommendation:** limit `refresh` usage, and build feeds that limit unnecessary processing generally — favor sending only what actually changed over resubmitting a full population every cycle. `store` is the safer default: it only performs inserts and updates for the records explicitly present in the file, and never disables or purges anything the file doesn't mention — so a partial or truncated `store` file just under-applies that run's changes, rather than silently disabling records it never got to. Reserve `refresh` for cases where you specifically need Learn to reconcile away anything missing from the file, and treat it as the higher-risk operation it is — see the [Pre-Flight Checklist](#pre-flight-checklist) above and budget the process integrity safeguards (verified complete transfers, file validation, dry-runs) accordingly.
 
 ---
 
