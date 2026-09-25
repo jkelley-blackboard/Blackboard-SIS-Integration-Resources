@@ -22,14 +22,14 @@ The Category object creates and manages catalog categories for Courses and Organ
 
 | Operation | URL |
 | :--- | :--- |
-| Store (Course Category) | `.../endpoint/coursecategory/coursecategory/store` |
-| Complete Refresh (Course Category) | `.../endpoint/coursecategory/coursecategory/refresh` |
-| Complete Refresh by Data Source (Course Category) | `.../endpoint/coursecategory/coursecategory/refreshlegacy` |
-| Delete (Course Category) | `.../endpoint/coursecategory/coursecategory/delete` |
-| Store (Organization Category) | `.../endpoint/coursecategory/organizationcategory/store` |
-| Complete Refresh (Organization Category) | `.../endpoint/coursecategory/organizationcategory/refresh` |
-| Complete Refresh by Data Source (Organization Category) | `.../endpoint/coursecategory/organizationcategory/refreshlegacy` |
-| Delete (Organization Category) | `.../endpoint/coursecategory/organizationcategory/delete` |
+| Store (Course Category) | `.../endpoint/coursecategory/store` |
+| Complete Refresh (Course Category) | `.../endpoint/coursecategory/refresh` |
+| Complete Refresh by Data Source (Course Category) | `.../endpoint/coursecategory/refreshlegacy` |
+| Delete (Course Category) | `.../endpoint/coursecategory/delete` |
+| Store (Organization Category) | `.../endpoint/organizationcategory/store` |
+| Complete Refresh (Organization Category) | `.../endpoint/organizationcategory/refresh` |
+| Complete Refresh by Data Source (Organization Category) | `.../endpoint/organizationcategory/refreshlegacy` |
+| Delete (Organization Category) | `.../endpoint/organizationcategory/delete` |
 
 ---
 

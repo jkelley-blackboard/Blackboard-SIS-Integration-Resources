@@ -22,14 +22,14 @@ The Category Membership object associates Courses and Organizations with catalog
 
 | Operation | URL |
 | :--- | :--- |
-| Store (Course) | `.../endpoint/coursecategorymembership/coursecategorymembership/store` |
-| Complete Refresh (Course) | `.../endpoint/coursecategorymembership/coursecategorymembership/refresh` |
-| Complete Refresh by Data Source (Course) | `.../endpoint/coursecategorymembership/coursecategorymembership/refreshlegacy` |
-| Delete (Course) | `.../endpoint/coursecategorymembership/coursecategorymembership/delete` |
-| Store (Organization) | `.../endpoint/coursecategorymembership/organizationcategorymembership/store` |
-| Complete Refresh (Organization) | `.../endpoint/coursecategorymembership/organizationcategorymembership/refresh` |
-| Complete Refresh by Data Source (Organization) | `.../endpoint/coursecategorymembership/organizationcategorymembership/refreshlegacy` |
-| Delete (Organization) | `.../endpoint/coursecategorymembership/organizationcategorymembership/delete` |
+| Store (Course) | `.../endpoint/coursecategorymembership/store` |
+| Complete Refresh (Course) | `.../endpoint/coursecategorymembership/refresh` |
+| Complete Refresh by Data Source (Course) | `.../endpoint/coursecategorymembership/refreshlegacy` |
+| Delete (Course) | `.../endpoint/coursecategorymembership/delete` |
+| Store (Organization) | `.../endpoint/organizationcategorymembership/store` |
+| Complete Refresh (Organization) | `.../endpoint/organizationcategorymembership/refresh` |
+| Complete Refresh by Data Source (Organization) | `.../endpoint/organizationcategorymembership/refreshlegacy` |
+| Delete (Organization) | `.../endpoint/organizationcategorymembership/delete` |
 
 ---
 

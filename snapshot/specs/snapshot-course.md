@@ -22,14 +22,14 @@ The Course object creates and updates Courses and Organizations in Blackboard Le
 
 | Operation | URL |
 | :--- | :--- |
-| Store (Course) | `.../endpoint/course/course/store` |
-| Complete Refresh (Course) | `.../endpoint/course/course/refresh` |
-| Complete Refresh by Data Source (Course) | `.../endpoint/course/course/refreshlegacy` |
-| Delete (Course) | `.../endpoint/course/course/delete` |
-| Store (Organization) | `.../endpoint/course/organization/store` |
-| Complete Refresh (Organization) | `.../endpoint/course/organization/refresh` |
-| Complete Refresh by Data Source (Organization) | `.../endpoint/course/organization/refreshlegacy` |
-| Delete (Organization) | `.../endpoint/course/organization/delete` |
+| Store (Course) | `.../endpoint/course/store` |
+| Complete Refresh (Course) | `.../endpoint/course/refresh` |
+| Complete Refresh by Data Source (Course) | `.../endpoint/course/refreshlegacy` |
+| Delete (Course) | `.../endpoint/course/delete` |
+| Store (Organization) | `.../endpoint/organization/store` |
+| Complete Refresh (Organization) | `.../endpoint/organization/refresh` |
+| Complete Refresh by Data Source (Organization) | `.../endpoint/organization/refreshlegacy` |
+| Delete (Organization) | `.../endpoint/organization/delete` |
 
 ---
 

@@ -22,14 +22,14 @@ The Membership object creates and manages enrollments and staff assignments for 
 
 | Operation | URL |
 | :--- | :--- |
-| Store (Course) | `.../endpoint/membership/membership/store` |
-| Complete Refresh (Course) | `.../endpoint/membership/membership/refresh` |
-| Complete Refresh by Data Source (Course) | `.../endpoint/membership/membership/refreshlegacy` |
-| Delete (Course) | `.../endpoint/membership/membership/delete` |
-| Store (Organization) | `.../endpoint/membership/organizationmembership/store` |
-| Complete Refresh (Organization) | `.../endpoint/membership/organizationmembership/refresh` |
-| Complete Refresh by Data Source (Organization) | `.../endpoint/membership/organizationmembership/refreshlegacy` |
-| Delete (Organization) | `.../endpoint/membership/organizationmembership/delete` |
+| Store (Course) | `.../endpoint/membership/store` |
+| Complete Refresh (Course) | `.../endpoint/membership/refresh` |
+| Complete Refresh by Data Source (Course) | `.../endpoint/membership/refreshlegacy` |
+| Delete (Course) | `.../endpoint/membership/delete` |
+| Store (Organization) | `.../endpoint/organizationmembership/store` |
+| Complete Refresh (Organization) | `.../endpoint/organizationmembership/refresh` |
+| Complete Refresh by Data Source (Organization) | `.../endpoint/organizationmembership/refreshlegacy` |
+| Delete (Organization) | `.../endpoint/organizationmembership/delete` |
 
 ---
 

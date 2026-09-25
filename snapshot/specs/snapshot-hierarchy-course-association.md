@@ -22,14 +22,14 @@ The Hierarchy Course Association object associates Courses and Organizations wit
 
 | Operation | URL |
 | :--- | :--- |
-| Store (Course) | `.../endpoint/courseassociation/courseassociation/store` |
-| Complete Refresh (Course) | `.../endpoint/courseassociation/courseassociation/refresh` |
-| Complete Refresh by Data Source (Course) | `.../endpoint/courseassociation/courseassociation/refreshlegacy` |
-| Delete (Course) | `.../endpoint/courseassociation/courseassociation/delete` |
-| Store (Organization) | `.../endpoint/courseassociation/organizationassociation/store` |
-| Complete Refresh (Organization) | `.../endpoint/courseassociation/organizationassociation/refresh` |
-| Complete Refresh by Data Source (Organization) | `.../endpoint/courseassociation/organizationassociation/refreshlegacy` |
-| Delete (Organization) | `.../endpoint/courseassociation/organizationassociation/delete` |
+| Store (Course) | `.../endpoint/courseassociation/store` |
+| Complete Refresh (Course) | `.../endpoint/courseassociation/refresh` |
+| Complete Refresh by Data Source (Course) | `.../endpoint/courseassociation/refreshlegacy` |
+| Delete (Course) | `.../endpoint/courseassociation/delete` |
+| Store (Organization) | `.../endpoint/organizationassociation/store` |
+| Complete Refresh (Organization) | `.../endpoint/organizationassociation/refresh` |
+| Complete Refresh by Data Source (Organization) | `.../endpoint/organizationassociation/refreshlegacy` |
+| Delete (Organization) | `.../endpoint/organizationassociation/delete` |
 
 ---
 
