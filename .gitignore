@@ -1,5 +1,8 @@
 .claude/
 
+# Internal-only scratch space (investigation, notes, WIP) -- never pushed
+/internal/
+
 # Work-in-progress operations guidance not yet ready for public git
 snapshot/operations/drafts/
 
