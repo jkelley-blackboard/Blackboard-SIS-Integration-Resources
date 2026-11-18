@@ -29,6 +29,12 @@ Resources for Snapshot Flat File integrations, including field-level specificati
 
 ---
 
+## [Data Source Keys](data-source-keys/)
+
+A strategy primer on Data Source Keys: what they do, how to choose and name a set of keys, and the mistakes that cause a refresh to reach records it shouldn't.
+
+---
+
 ## Usage
 
 This content is provided as-is, without warranty or support of any kind. Blackboard retains all rights. Use at your own risk.
