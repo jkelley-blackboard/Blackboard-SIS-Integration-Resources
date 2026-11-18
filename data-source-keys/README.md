@@ -124,8 +124,9 @@ find and group records at a glance.
 These rules keep names readable:
 
 - **Use one pattern everywhere:** source, then object, then scope. For example `SIS_ENROLL_2026FA`.
-- **Use capital letters, digits and underscores only.** Avoid spaces and other punctuation so keys are
-  safe in files, scripts and queries.
+- **Use letters, digits, underscores and hyphens only.** Avoid spaces and other punctuation so keys
+  are safe in files, scripts and queries. Upper and lower case are both fine; pick one style and
+  use it for every key.
 - **Use the same term code your SIS uses,** so a key can be matched to a term without a lookup table.
 - **Never reuse a key name for a different purpose.** Retire it and create a new one instead.
 - **Fill in the key's description** in Learn with what it covers and which feed uses it. This
